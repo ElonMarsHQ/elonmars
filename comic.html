@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELONMARS | Comic Reader</title>
+    <title>ELONMARS | Official Comic Reader</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
@@ -17,6 +17,11 @@
             --card-bg: #141419;
             --border-color: #2a2a35;
         }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
@@ -25,11 +30,13 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            min-height: 100vh;
         }
+
+        /* HEADER */
         .reader-header {
             width: 100%;
-            padding: 15px 20px;
+            padding: 12px 20px;
             background: rgba(10, 10, 12, 0.95);
             border-bottom: 2px solid var(--mars-red);
             display: flex;
@@ -38,106 +45,213 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-sizing: border-box;
         }
-        .btn-back {
+
+        .btn-home {
             color: var(--amber-yellow);
             text-decoration: none;
             font-family: 'VT323', monospace;
             font-size: 1.2rem;
             border: 1px solid var(--amber-yellow);
-            padding: 5px 15px;
+            padding: 4px 12px;
             border-radius: 4px;
             transition: 0.2s;
         }
-        .btn-back:hover {
+
+        .btn-home:hover {
             background: var(--amber-yellow);
             color: #000;
         }
+
         .reader-title {
             font-family: 'VT323', monospace;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--mars-orange);
             margin: 0;
+            letter-spacing: 1px;
         }
-        .comic-reader-container {
-            width: 100%;
-            max-width: 700px;
+
+        /* COMIC VIEWPORT */
+        .comic-viewport {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            background: #000;
-            min-height: 100vh;
-            box-shadow: 0 0 30px rgba(0,0,0,0.8);
-        }
-        .comic-page {
+            align-items: center;
+            justify-content: center;
+            padding: 20px 10px;
+            max-width: 800px;
+            margin: 0 auto;
             width: 100%;
-            display: block;
-            margin: 0;
-            padding: 0;
-            line-height: 0;
         }
-        .comic-page img {
+
+        .comic-image-container {
+            width: 100%;
+            background: #000;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(255, 51, 51, 0.08);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .comic-image-container img {
             width: 100%;
             height: auto;
+            max-height: 80vh;
+            object-fit: contain;
             display: block;
         }
-        .end-chapter {
-            padding: 40px 20px;
-            text-align: center;
-            font-family: 'VT323', monospace;
-            font-size: 1.6rem;
-            color: var(--amber-yellow);
-            background: var(--card-bg);
+
+        /* CONTROLS BAR (STICKY BOTTOM) */
+        .reader-controls {
+            width: 100%;
+            background: rgba(10, 10, 12, 0.95);
             border-top: 1px solid var(--border-color);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            bottom: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-control {
+            background: var(--mars-orange);
+            color: #000;
+            border: none;
+            font-family: 'VT323', monospace;
+            font-size: 1.3rem;
+            padding: 8px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn-control:hover:not(:disabled) {
+            background: var(--amber-yellow);
+        }
+
+        .btn-control:disabled {
+            background: #333;
+            color: #666;
+            cursor: not-allowed;
+        }
+
+        .page-indicator {
+            font-family: 'VT323', monospace;
+            font-size: 1.3rem;
+            color: var(--amber-yellow);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            .reader-header {
+                padding: 10px 15px;
+            }
+            .reader-title {
+                font-size: 1.1rem;
+            }
+            .btn-control {
+                padding: 6px 14px;
+                font-size: 1.1rem;
+            }
+            .page-indicator {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- TOP HEADER -->
     <div class="reader-header">
-        <a href="index.html" class="btn-back">&larr; HOME</a>
-        <h2 class="reader-title">ELONMARS COMIC</h2>
-        <div style="width: 60px;"></div>
+        <a href="index.html" class="btn-home">&larr; HOME</a>
+        <h2 class="reader-title" id="chapter-title">ELONMARS: ISSUE #1</h2>
+        <div style="width: 60px;"></div> <!-- Spacer for balance -->
     </div>
 
-    <div class="comic-reader-container">
-        
-        <!-- COVER -->
-        <div class="comic-page">
-            <img src="images/elonmars-cover.png" alt="ElonMars Comic Cover">
-        </div>
-
-        <!-- ISI COMIC PAGE 1 - 8 -->
-        <div class="comic-page">
-            <img src="images/elonmars-page1.png" alt="Page 1">
-        </div>
-        <div class="comic-page">
-            <img src="images/elonmars-page2.png" alt="Page 2">
-        </div>
-        <div class="comic-page">
-            <img src="images/elonmars-page3.png" alt="Page 3">
-        </div>
-        <div class="comic-page">
-            <img src="images/elonmars-page4.png" alt="Page 4">
-        </div>
-        <div class="comic-page">
-            <img src="images/elonmars-page5.png" alt="Page 5">
-        </div>
-        <div class="comic-page">
-            <img src="images/elonmars-page6.png" alt="Page 6">
-        </div>
-        <div class="comic-page">
-            <img src="images/elonmars-page7.png" alt="Page 7">
-        </div>
-        <div class="comic-page">
-            <img src="images/elonmars-page8.png" alt="Page 8">
-        </div>
-        
-        <div class="end-chapter">
-            <p>TO BE CONTINUED...</p>
-            <a href="index.html" class="btn-back" style="display: inline-block; margin-top: 10px;">BACK TO HOME</a>
+    <!-- VIEWER CONTAINER -->
+    <div class="comic-viewport">
+        <div class="comic-image-container">
+            <img id="comic-img" src="images/elonmars-cover.png" alt="Comic Page">
         </div>
     </div>
+
+    <!-- BOTTOM CONTROLS -->
+    <div class="reader-controls">
+        <button id="prev-btn" class="btn-control" onclick="changePage(-1)">PREV</button>
+        <span class="page-indicator" id="page-indicator">PAGE 1 / 9</span>
+        <button id="next-btn" class="btn-control" onclick="changePage(1)">NEXT</button>
+    </div>
+
+    <script>
+        // Daftar file gambar komik secara berurutan
+        const pages = [
+            "images/elonmars-cover.png",
+            "images/elonmars-page1.png",
+            "images/elonmars-page2.png",
+            "images/elonmars-page3.png",
+            "images/elonmars-page4.png",
+            "images/elonmars-page5.png",
+            "images/elonmars-page6.png",
+            "images/elonmars-page7.png",
+            "images/elonmars-page8.png"
+        ];
+
+        let currentIndex = 0;
+
+        const imgElement = document.getElementById("comic-img");
+        const indicatorElement = document.getElementById("page-indicator");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+
+        function updateReader() {
+            imgElement.src = pages[currentIndex];
+            indicatorElement.innerText = `PAGE ${currentIndex + 1} / ${pages.length}`;
+
+            // Disable/Enable tombol di ujung halaman
+            prevBtn.disabled = currentIndex === 0;
+            
+            if (currentIndex === pages.length - 1) {
+                nextBtn.innerText = "FINISH";
+            } else {
+                nextBtn.innerText = "NEXT";
+            }
+        }
+
+        function changePage(direction) {
+            currentIndex += direction;
+
+            if (currentIndex < 0) {
+                currentIndex = 0;
+            } else if (currentIndex >= pages.length) {
+                // Jika sudah di halaman terakhir dan klik finish, kembali ke home
+                window.location.href = "index.html";
+                return;
+            }
+
+            updateReader();
+            // Scroll ke atas sedikit agar pas di layar HP
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Navigasi Keyboard (Tombol Panah Kiri / Kanan)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changePage(-1);
+            } else if (e.key === 'ArrowRight') {
+                changePage(1);
+            }
+        });
+
+        // Inisialisasi awal
+        updateReader();
+    </script>
 
 </body>
 </html>
