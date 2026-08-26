@@ -7,7 +7,7 @@
     <title>ELONMARS | To The Moon? Wrong Planet.</title>
 
     <meta name="description"
-          content="ELONMARS — the meme coin that took a wrong turn to Mars. A meme. A rocket. One very questionable decision.">
+        content="ELONMARS — The meme coin that took a wrong turn to Mars. A meme. A rocket. One very questionable decision.">
 
     <meta name="theme-color" content="#08080b">
 
@@ -15,27 +15,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+        rel="stylesheet">
 
     <style>
 
         :root {
-            --bg: #08080b;
-            --bg-soft: #0e0e13;
+            --bg-dark: #08080b;
+            --bg-soft: #0d0d12;
             --card: #131319;
 
-            --red: #ff3b30;
-            --orange: #ff6a00;
-            --yellow: #ffd23f;
+            --mars-red: #ff3333;
+            --mars-orange: #ff6600;
+            --amber: #ffcc00;
 
-            --text: #f4f4f5;
-            --muted: #9a9aa3;
+            --text: #f3f3f3;
+            --muted: #96969f;
 
-            --border: #282832;
-            --green: #38ff88;
+            --border: #292932;
 
-            --max: 1120px;
+            --green: #35ff82;
+
+            --container: 1380px;
         }
+
+        /* =========================
+           RESET
+        ========================= */
 
         * {
             box-sizing: border-box;
@@ -49,14 +54,23 @@
 
         body {
             background:
-                radial-gradient(circle at 50% -10%, rgba(255,70,30,.12), transparent 35%),
-                var(--bg);
+                radial-gradient(
+                    circle at 50% -10%,
+                    rgba(255, 70, 30, .13),
+                    transparent 38%
+                ),
+                var(--bg-dark);
 
             color: var(--text);
+
             font-family: 'Space Grotesk', sans-serif;
+
             line-height: 1.6;
+
             overflow-x: hidden;
         }
+
+        /* subtle star/grid background */
 
         body::before {
             content: "";
@@ -64,407 +78,628 @@
             inset: 0;
 
             background-image:
-                radial-gradient(circle, rgba(255,255,255,.8) 1px, transparent 1px);
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,.7) 1px,
+                    transparent 1px
+                );
 
-            background-size: 110px 110px;
-            opacity: .035;
+            background-size: 120px 120px;
+
+            opacity: .025;
 
             pointer-events: none;
-            z-index: -1;
+
+            z-index: -2;
         }
 
-        /* CRT */
-
-        .crt::after {
+        body::after {
             content: "";
+
             position: fixed;
             inset: 0;
 
             background:
                 linear-gradient(
+                    90deg,
+                    transparent 49.9%,
+                    rgba(255,255,255,.015) 50%,
+                    transparent 50.1%
+                );
+
+            background-size: 80px 80px;
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+        /* =========================
+           CRT
+        ========================= */
+
+        .crt::after {
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
                     rgba(18,16,16,0) 50%,
-                    rgba(0,0,0,.12) 50%
+                    rgba(0,0,0,.13) 50%
                 );
 
             background-size: 100% 5px;
 
             pointer-events: none;
+
             z-index: 999;
-            opacity: .35;
+
+            opacity: .25;
         }
 
-        /* NAVBAR */
+        /* =========================
+           NAVBAR
+        ========================= */
 
         .navbar {
             position: sticky;
+
             top: 0;
+
             z-index: 100;
 
+            min-height: 70px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
-            gap: 25px;
+            gap: 30px;
 
-            padding: 12px 25px;
+            padding: 10px 4vw;
 
             background: rgba(8,8,11,.92);
-            backdrop-filter: blur(12px);
 
-            border-bottom: 1px solid rgba(255,59,48,.45);
+            backdrop-filter: blur(14px);
+
+            border-bottom:
+                1px solid
+                rgba(255,51,51,.35);
         }
 
         .brand {
             display: flex;
+
             align-items: center;
+
             gap: 10px;
 
-            text-decoration: none;
             color: white;
+
+            text-decoration: none;
+
+            flex-shrink: 0;
         }
 
         .brand img {
             width: 44px;
+
             height: 44px;
+
             object-fit: contain;
         }
 
         .brand span {
             font-family: 'VT323', monospace;
+
             font-size: 2rem;
-            color: var(--orange);
+
             letter-spacing: 2px;
+
+            color: var(--mars-orange);
         }
 
         .nav-links {
             display: flex;
+
             align-items: center;
-            gap: 22px;
+
+            justify-content: center;
+
+            gap: 26px;
 
             list-style: none;
+
+            flex: 1;
         }
 
         .nav-links a {
-            color: #ddd;
+            color: #cfcfd4;
+
             text-decoration: none;
+
             font-size: .85rem;
-            font-weight: 600;
+
+            font-weight: 700;
 
             transition: .2s;
         }
 
         .nav-links a:hover {
-            color: var(--yellow);
+            color: var(--amber);
         }
 
-        /* BUTTONS */
+        /* =========================
+           BUTTONS
+        ========================= */
 
         .btn {
             display: inline-flex;
+
             align-items: center;
+
             justify-content: center;
 
-            padding: 11px 20px;
+            padding: 11px 21px;
 
-            text-decoration: none;
-            font-family: 'VT323', monospace;
-            font-size: 1.25rem;
-
-            border: 1px solid transparent;
             border-radius: 3px;
 
-            transition: .2s;
+            font-family: 'VT323', monospace;
+
+            font-size: 1.2rem;
+
+            text-decoration: none;
+
             cursor: pointer;
+
+            transition: .2s;
+
+            white-space: nowrap;
         }
 
         .btn-primary {
-            background: var(--orange);
-            color: #090909;
+            background: var(--mars-orange);
+
+            color: #080808;
+
+            border: 1px solid var(--mars-orange);
 
             box-shadow:
-                0 0 25px rgba(255,106,0,.15);
+                0 0 25px
+                rgba(255,102,0,.12);
         }
 
         .btn-primary:hover {
-            background: var(--yellow);
+            background: var(--amber);
+
+            border-color: var(--amber);
+
             transform: translateY(-2px);
         }
 
         .btn-outline {
             background: transparent;
-            color: var(--orange);
-            border-color: var(--orange);
+
+            color: var(--mars-orange);
+
+            border:
+                1px solid
+                var(--mars-orange);
         }
 
         .btn-outline:hover {
-            background: var(--orange);
+            background: var(--mars-orange);
+
             color: #050505;
         }
 
-        /* HERO */
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            min-height: 88vh;
+            width: min(
+                var(--container),
+                calc(100% - 60px)
+            );
 
-            max-width: var(--max);
-            margin: auto;
+            min-height: 720px;
 
-            padding: 80px 25px 70px;
+            margin: 0 auto;
 
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns:
+                minmax(0, 1.15fr)
+                minmax(400px, .85fr);
+
             align-items: center;
-            gap: 60px;
+
+            gap: 70px;
+
+            padding: 80px 20px;
         }
 
         .hero-content {
-            text-align: left;
+            position: relative;
+
+            z-index: 2;
         }
 
         .status {
-            display: inline-block;
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
 
             padding: 5px 12px;
 
-            border: 1px solid var(--border);
+            margin-bottom: 22px;
+
             background: var(--card);
+
+            border:
+                1px solid
+                var(--border);
 
             color: var(--green);
 
             font-family: 'VT323', monospace;
-            font-size: 1.05rem;
 
-            margin-bottom: 20px;
+            font-size: 1.05rem;
         }
 
         .hero h1 {
             font-family: 'VT323', monospace;
 
-            font-size: clamp(5rem, 12vw, 9rem);
-            line-height: .75;
+            font-size:
+                clamp(
+                    6rem,
+                    11vw,
+                    10.5rem
+                );
 
-            color: var(--red);
+            line-height: .72;
+
             letter-spacing: 4px;
 
-            text-shadow:
-                4px 4px 0 #570d0a,
-                0 0 35px rgba(255,59,48,.18);
+            color: var(--mars-red);
 
-            margin-bottom: 28px;
+            text-shadow:
+                5px 5px 0 #560c0c,
+                0 0 45px rgba(255,51,51,.16);
+
+            margin-bottom: 30px;
         }
 
         .hero h2 {
-            font-size: clamp(1.3rem, 3vw, 2rem);
-            line-height: 1.25;
+            max-width: 800px;
 
-            color: var(--yellow);
+            font-size:
+                clamp(
+                    1.4rem,
+                    2.7vw,
+                    2.2rem
+                );
 
-            max-width: 600px;
+            line-height: 1.2;
 
-            margin-bottom: 15px;
+            color: var(--amber);
+
+            margin-bottom: 16px;
         }
 
-        .hero p {
-            color: var(--muted);
-            max-width: 550px;
-            font-size: 1.05rem;
+        .hero-description {
+            max-width: 650px;
 
-            margin-bottom: 28px;
+            color: var(--muted);
+
+            font-size: 1.08rem;
+
+            margin-bottom: 30px;
         }
 
         .hero-buttons {
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 12px;
         }
 
         .ticker {
-            margin-top: 25px;
-
             display: inline-block;
 
-            padding: 8px 15px;
+            margin-top: 26px;
+
+            padding: 8px 16px;
 
             background: var(--card);
-            border: 1px dashed var(--orange);
 
-            color: var(--yellow);
+            border:
+                1px dashed
+                var(--mars-orange);
+
+            color: var(--amber);
 
             font-family: 'VT323', monospace;
+
             font-size: 1.1rem;
         }
 
-        /* HERO LOGO */
+        /* =========================
+           HERO VISUAL
+        ========================= */
 
         .hero-visual {
             display: flex;
-            justify-content: center;
+
             align-items: center;
+
+            justify-content: center;
         }
 
         .logo-frame {
             position: relative;
 
-            width: min(440px, 80vw);
+            width: min(
+                500px,
+                100%
+            );
+
             aspect-ratio: 1;
 
             display: flex;
-            justify-content: center;
+
             align-items: center;
+
+            justify-content: center;
 
             background:
                 radial-gradient(
                     circle,
-                    rgba(255,70,30,.13),
-                    transparent 65%
+                    rgba(255,70,30,.14),
+                    transparent 67%
                 );
 
-            border: 1px solid rgba(255,106,0,.3);
+            border:
+                1px solid
+                rgba(255,102,0,.28);
 
             box-shadow:
-                0 0 70px rgba(255,60,20,.08);
+                0 0 90px
+                rgba(255,60,20,.07);
 
-            animation: float 5s ease-in-out infinite;
+            animation:
+                floating 5s ease-in-out infinite;
         }
 
         .logo-frame::before {
-            content: "SIGNAL DETECTED";
+            content:
+                "SIGNAL DETECTED";
 
             position: absolute;
-            top: 12px;
-            left: 15px;
+
+            top: 15px;
+
+            left: 18px;
 
             color: var(--green);
+
             font-family: 'VT323', monospace;
-            font-size: .95rem;
+
+            font-size: 1rem;
         }
 
         .logo-frame::after {
-            content: "ELONMARS // SYSTEM 01";
+            content:
+                "ELONMARS // SYSTEM 01";
 
             position: absolute;
-            bottom: 12px;
-            right: 15px;
 
-            color: #666;
+            right: 18px;
+
+            bottom: 15px;
+
+            color: #5f5f66;
+
             font-family: 'VT323', monospace;
+
             font-size: .9rem;
         }
 
         .logo-frame img {
-            width: 82%;
-            height: 82%;
+            width: 83%;
+
+            height: 83%;
+
             object-fit: contain;
 
             filter:
-                drop-shadow(0 0 25px rgba(255,70,30,.18));
+                drop-shadow(
+                    0 0 28px
+                    rgba(255,70,30,.18)
+                );
         }
 
-        @keyframes float {
+        @keyframes floating {
+
             0%,100% {
                 transform: translateY(0);
             }
 
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-12px);
             }
+
         }
 
-        /* SECTIONS */
+        /* =========================
+           SECTION
+        ========================= */
 
         .section {
-            max-width: var(--max);
-            margin: auto;
+            width: min(
+                var(--container),
+                calc(100% - 60px)
+            );
 
-            padding: 85px 25px;
+            margin: 0 auto;
 
-            border-top: 1px solid var(--border);
+            padding: 90px 20px;
+
+            border-top:
+                1px solid
+                var(--border);
         }
 
         .section-heading {
-            margin-bottom: 35px;
+            margin-bottom: 38px;
         }
 
         .section-heading span {
             display: block;
 
+            margin-bottom: 4px;
+
+            color: var(--mars-red);
+
             font-family: 'VT323', monospace;
-            color: var(--red);
 
             font-size: 1.1rem;
-            letter-spacing: 2px;
 
-            margin-bottom: 4px;
+            letter-spacing: 2px;
         }
 
         .section-heading h2 {
             font-family: 'VT323', monospace;
 
-            font-size: 3rem;
+            font-size:
+                clamp(
+                    2.8rem,
+                    5vw,
+                    4rem
+                );
 
-            color: var(--yellow);
+            line-height: 1;
+
+            color: var(--amber);
+
+            margin-bottom: 10px;
         }
 
         .section-heading p {
+            max-width: 700px;
+
             color: var(--muted);
-            max-width: 650px;
         }
 
-        /* STORY */
+        /* =========================
+           STORY
+        ========================= */
 
         .story-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 35px;
 
-            align-items: center;
+            grid-template-columns:
+                minmax(300px, .8fr)
+                minmax(0, 1.2fr);
+
+            gap: 28px;
         }
 
         .story-text {
-            background: var(--card);
+            display: flex;
 
-            border: 1px solid var(--border);
+            flex-direction: column;
 
-            padding: 30px;
+            justify-content: center;
 
-            font-size: 1.15rem;
+            min-height: 360px;
+
+            padding: 38px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #15151b,
+                    #101014
+                );
+
+            border:
+                1px solid
+                var(--border);
         }
 
         .story-text p {
+            color: #c9c9ce;
+
+            font-size: 1.15rem;
+
             margin-bottom: 13px;
-            color: #ccc;
         }
 
         .story-text strong {
-            color: var(--orange);
+            color: var(--mars-orange);
+        }
+
+        .story-text .btn {
+            align-self: flex-start;
+
+            margin-top: 15px;
         }
 
         .comic-preview {
             position: relative;
 
-            border: 1px solid var(--border);
+            min-height: 360px;
+
+            display: block;
 
             overflow: hidden;
 
             background: #050505;
+
+            border:
+                1px solid
+                var(--border);
         }
 
         .comic-preview img {
             width: 100%;
+
+            height: 100%;
+
+            min-height: 360px;
+
             display: block;
 
-            transition: transform .4s;
+            object-fit: cover;
+
+            transition:
+                transform .45s;
         }
 
         .comic-preview:hover img {
-            transform: scale(1.025);
+            transform: scale(1.035);
         }
 
         .comic-overlay {
             position: absolute;
-            inset: auto 0 0;
 
-            padding: 25px;
+            left: 0;
+
+            right: 0;
+
+            bottom: 0;
+
+            padding: 60px 28px 25px;
 
             background:
                 linear-gradient(
@@ -475,38 +710,94 @@
 
         .comic-overlay h3 {
             font-family: 'VT323', monospace;
-            font-size: 2rem;
+
             color: white;
+
+            font-size: 2.2rem;
         }
 
-        /* TOKEN */
+        .comic-overlay p {
+            color: #bbb;
+        }
+
+        /* =========================
+           TOKEN
+        ========================= */
+
+        .token-layout {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .token-stat {
+            padding: 24px;
+
+            min-height: 125px;
+
+            background: var(--card);
+
+            border:
+                1px solid
+                var(--border);
+        }
+
+        .token-stat span {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: .85rem;
+
+            margin-bottom: 8px;
+        }
+
+        .token-stat strong {
+            font-family: 'VT323', monospace;
+
+            color: var(--mars-orange);
+
+            font-size: 2rem;
+        }
 
         .terminal {
-            background: #09090c;
+            background: #08080a;
 
-            border: 1px solid var(--border);
-
-            box-shadow:
-                8px 8px 0 rgba(255,59,48,.08);
+            border:
+                1px solid
+                var(--border);
         }
 
-        .terminal-top {
-            padding: 10px 15px;
+        .terminal-header {
+            padding: 10px 16px;
 
-            border-bottom: 1px solid var(--border);
+            border-bottom:
+                1px solid
+                var(--border);
+
+            color: var(--mars-red);
 
             font-family: 'VT323', monospace;
 
-            color: var(--red);
+            font-size: 1.15rem;
         }
 
         .terminal-body {
-            padding: 30px;
+            padding: 25px;
         }
 
         .token-row {
             display: grid;
-            grid-template-columns: 180px 1fr auto;
+
+            grid-template-columns:
+                180px
+                minmax(0, 1fr)
+                auto;
 
             align-items: center;
 
@@ -514,7 +805,9 @@
 
             padding: 15px 0;
 
-            border-bottom: 1px dashed #25252c;
+            border-bottom:
+                1px dashed
+                #28282f;
         }
 
         .token-row:last-child {
@@ -527,43 +820,55 @@
 
         .token-value {
             color: white;
+
             font-weight: 700;
         }
 
-        .ca {
-            font-family: monospace;
-            color: var(--yellow);
+        .ca-box {
+            padding: 8px 12px;
 
             background: #000;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid
+                var(--border);
 
-            padding: 7px 10px;
+            color: var(--amber);
+
+            font-family: monospace;
 
             word-break: break-all;
         }
 
         .copy-btn {
+            padding: 7px 13px;
+
             background: transparent;
 
-            border: 1px solid var(--orange);
+            border:
+                1px solid
+                var(--mars-orange);
 
-            color: var(--orange);
+            color: var(--mars-orange);
 
-            padding: 7px 12px;
+            font-family: 'VT323', monospace;
+
+            font-size: 1rem;
 
             cursor: pointer;
 
-            font-family: 'VT323', monospace;
-            font-size: 1rem;
+            transition: .2s;
         }
 
         .copy-btn:hover {
-            background: var(--orange);
+            background: var(--mars-orange);
+
             color: #000;
         }
 
-        /* ROADMAP */
+        /* =========================
+           ROADMAP
+        ========================= */
 
         .roadmap-grid {
             display: grid;
@@ -571,27 +876,46 @@
             grid-template-columns:
                 repeat(4, 1fr);
 
-            gap: 15px;
+            gap: 18px;
         }
 
         .roadmap-card {
-            background: var(--card);
+            min-height: 260px;
 
-            border: 1px solid var(--border);
+            padding: 28px;
 
-            padding: 25px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #15151a,
+                    #101014
+                );
 
-            min-height: 230px;
+            border:
+                1px solid
+                var(--border);
+
+            transition: .25s;
+        }
+
+        .roadmap-card:hover {
+            border-color:
+                rgba(255,102,0,.6);
+
+            transform:
+                translateY(-5px);
         }
 
         .roadmap-card h3 {
+            color: var(--mars-orange);
+
             font-family: 'VT323', monospace;
 
-            font-size: 1.55rem;
+            font-size: 1.7rem;
 
-            color: var(--orange);
+            line-height: 1.05;
 
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
 
         .roadmap-card ul {
@@ -599,18 +923,22 @@
         }
 
         .roadmap-card li {
-            color: #bbb;
+            color: #bdbdc3;
+
             margin-bottom: 10px;
         }
 
         .roadmap-card li::before {
             content: "> ";
 
-            color: var(--yellow);
+            color: var(--amber);
+
             font-family: 'VT323', monospace;
         }
 
-        /* CREW */
+        /* =========================
+           CREW
+        ========================= */
 
         .crew-grid {
             display: grid;
@@ -618,58 +946,150 @@
             grid-template-columns:
                 repeat(4, 1fr);
 
-            gap: 15px;
+            gap: 18px;
         }
 
         .crew-card {
+            min-height: 250px;
+
+            padding: 28px;
+
             background: var(--card);
 
-            border: 1px solid var(--border);
+            border:
+                1px solid
+                var(--border);
 
-            padding: 25px;
-
-            transition: .2s;
+            transition: .25s;
         }
 
         .crew-card:hover {
-            border-color: var(--orange);
-            transform: translateY(-4px);
+            transform:
+                translateY(-5px);
+
+            border-color:
+                var(--mars-orange);
         }
 
         .crew-icon {
-            font-size: 2.7rem;
+            font-size: 2.8rem;
+
             margin-bottom: 10px;
         }
 
         .crew-card h3 {
+            color: var(--mars-orange);
+
             font-family: 'VT323', monospace;
 
-            font-size: 1.8rem;
-
-            color: var(--orange);
+            font-size: 2rem;
 
             margin-bottom: 8px;
         }
 
         .crew-card p {
             color: var(--muted);
+
             font-size: .95rem;
         }
 
-        /* TRANSMISSION */
+        /* =========================
+           COMIC ARCHIVE
+        ========================= */
 
-        .log {
-            background: #030304;
+        .comic-archive {
+            display: grid;
 
-            border: 1px solid #222;
+            grid-template-columns:
+                280px
+                minmax(0, 1fr);
 
-            padding: 25px;
+            gap: 28px;
+
+            padding: 28px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #141419,
+                    #0e0e12
+                );
+
+            border:
+                1px solid
+                var(--border);
+        }
+
+        .comic-cover {
+            width: 100%;
+
+            display: block;
+
+            border:
+                1px solid
+                #333;
+
+            box-shadow:
+                0 12px 35px
+                rgba(0,0,0,.4);
+        }
+
+        .comic-info {
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+        .comic-info h3 {
+            font-family: 'VT323', monospace;
+
+            color: var(--mars-red);
+
+            font-size: 3rem;
+
+            line-height: 1;
+
+            margin-bottom: 12px;
+        }
+
+        .comic-info p {
+            color: var(--muted);
+
+            max-width: 650px;
+
+            margin-bottom: 22px;
+        }
+
+        .comic-pages {
+            color: var(--amber);
 
             font-family: 'VT323', monospace;
 
+            font-size: 1.1rem;
+
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           TRANSMISSION
+        ========================= */
+
+        .log {
+            padding: 28px;
+
+            background: #030304;
+
+            border:
+                1px solid
+                #24242a;
+
             color: var(--green);
 
-            font-size: 1.15rem;
+            font-family: 'VT323', monospace;
+
+            font-size: 1.2rem;
         }
 
         .log p {
@@ -677,68 +1097,90 @@
         }
 
         .blink {
-            animation: blink 1s linear infinite;
+            animation:
+                blink 1s linear infinite;
         }
 
         @keyframes blink {
+
             50% {
-                opacity: .2;
+                opacity: .15;
             }
+
         }
 
-        /* COMMUNITY */
+        /* =========================
+           COMMUNITY
+        ========================= */
 
         .community {
             text-align: center;
 
+            padding-top: 110px;
+
+            padding-bottom: 110px;
+
             background:
                 radial-gradient(
                     circle at center,
-                    rgba(255,60,20,.1),
-                    transparent 60%
+                    rgba(255,60,20,.10),
+                    transparent 55%
                 );
         }
 
         .community h2 {
             font-family: 'VT323', monospace;
 
-            font-size: clamp(3rem, 8vw, 5rem);
+            font-size:
+                clamp(
+                    3.5rem,
+                    8vw,
+                    6rem
+                );
 
-            color: var(--red);
+            line-height: .9;
+
+            color: var(--mars-red);
+
+            margin-bottom: 18px;
         }
 
         .community p {
+            max-width: 650px;
+
+            margin: 0 auto 25px;
+
             color: var(--muted);
-
-            max-width: 600px;
-
-            margin: 10px auto 25px;
         }
 
-        /* FOOTER */
+        /* =========================
+           FOOTER
+        ========================= */
 
-        footer {
-            padding: 45px 20px;
+        .footer {
+            padding: 50px 20px;
 
             text-align: center;
 
             background: #050507;
 
-            border-top: 1px solid var(--border);
+            border-top:
+                1px solid
+                var(--border);
 
-            color: #666;
+            color: #65656c;
         }
 
-        footer strong {
-            color: var(--orange);
+        .footer-brand {
+            color: var(--mars-orange);
 
             font-family: 'VT323', monospace;
 
-            font-size: 1.5rem;
+            font-size: 2rem;
         }
 
         .footer-links {
-            margin: 15px 0;
+            margin: 18px 0;
         }
 
         .footer-links a {
@@ -746,74 +1188,100 @@
 
             text-decoration: none;
 
-            margin: 0 8px;
+            margin: 0 10px;
+
+            font-size: .9rem;
         }
 
         .footer-links a:hover {
-            color: var(--yellow);
+            color: var(--amber);
         }
 
         .disclaimer {
-            max-width: 650px;
+            max-width: 700px;
 
             margin: 20px auto 0;
 
-            font-size: .72rem;
+            color: #505057;
 
-            color: #555;
+            font-size: .72rem;
         }
 
-        /* MOBILE */
+        /* =========================
+           LARGE DESKTOP
+        ========================= */
 
-        @media (max-width: 850px) {
+        @media (min-width: 1600px) {
 
-            .nav-links {
-                display: none;
+            :root {
+                --container: 1480px;
             }
 
             .hero {
-                grid-template-columns: 1fr;
+                min-height: 800px;
 
-                text-align: center;
+                grid-template-columns:
+                    1.2fr
+                    .8fr;
 
-                padding-top: 65px;
+                gap: 100px;
             }
 
-            .hero-content {
-                text-align: center;
+            .section {
+                padding-top: 105px;
+
+                padding-bottom: 105px;
             }
 
-            .hero h2,
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .story-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .roadmap-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .crew-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .token-row {
-                grid-template-columns: 1fr;
-            }
         }
 
-        @media (max-width: 550px) {
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 1050px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero {
+                grid-template-columns:
+                    1fr
+                    .8fr;
+
+                gap: 35px;
+            }
+
+            .hero h1 {
+                font-size: 7rem;
+            }
+
+            .token-layout {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .roadmap-grid,
+            .crew-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 760px) {
 
             .navbar {
                 padding: 10px 15px;
+            }
+
+            .nav-links {
+                display: none;
             }
 
             .brand span {
@@ -822,28 +1290,107 @@
 
             .brand img {
                 width: 38px;
+
                 height: 38px;
             }
 
             .navbar > .btn {
-                padding: 8px 12px;
+                padding: 8px 13px;
+
                 font-size: 1rem;
             }
 
             .hero {
-                padding: 55px 18px;
+                width: 100%;
+
+                min-height: auto;
+
+                display: flex;
+
+                flex-direction: column;
+
+                gap: 45px;
+
+                text-align: center;
+
+                padding:
+                    65px 20px
+                    70px;
+            }
+
+            .hero-content {
+                width: 100%;
             }
 
             .hero h1 {
-                font-size: 5.5rem;
+                font-size:
+                    clamp(
+                        5rem,
+                        21vw,
+                        7rem
+                    );
+
+                margin-bottom: 25px;
+            }
+
+            .hero h2 {
+                font-size: 1.35rem;
+            }
+
+            .hero-description {
+                margin-left: auto;
+
+                margin-right: auto;
+
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .logo-frame {
+                width:
+                    min(
+                        380px,
+                        90vw
+                    );
             }
 
             .section {
-                padding: 65px 18px;
+                width: 100%;
+
+                padding:
+                    65px 20px;
             }
 
             .section-heading h2 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-text {
+                min-height: auto;
+
+                padding: 28px;
+            }
+
+            .comic-preview,
+            .comic-preview img {
+                min-height: 300px;
+            }
+
+            .token-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .token-row {
+                grid-template-columns: 1fr;
+
+                gap: 8px;
             }
 
             .roadmap-grid,
@@ -851,42 +1398,144 @@
                 grid-template-columns: 1fr;
             }
 
-            .terminal-body {
+            .roadmap-card,
+            .crew-card {
+                min-height: auto;
+            }
+
+            .comic-archive {
+                grid-template-columns: 1fr;
+
                 padding: 20px;
             }
+
+            .comic-cover {
+                max-width: 280px;
+
+                margin: auto;
+            }
+
+            .comic-info {
+                text-align: center;
+
+                align-items: center;
+            }
+
+            .comic-info h3 {
+                font-size: 2.6rem;
+            }
+
+        }
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
+        @media (max-width: 430px) {
+
+            .hero {
+                padding-top: 50px;
+            }
+
+            .hero h1 {
+                font-size: 4.8rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+
+                width: 100%;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .ticker {
+                font-size: .95rem;
+            }
+
+            .section-heading h2 {
+                font-size: 2.5rem;
+            }
+
+            .logo-frame {
+                width: 88vw;
+            }
+
+            .terminal-body {
+                padding: 18px;
+            }
+
+            .footer-links a {
+                display: inline-block;
+
+                margin-bottom: 8px;
+            }
+
         }
 
     </style>
 </head>
 
+
 <body class="crt">
 
-<!-- ================= NAVBAR ================= -->
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <nav class="navbar">
 
     <a href="#home" class="brand">
 
+        <!-- Replace with your real logo filename -->
+
         <img
             src="assets/elonmars-logo.png"
-            alt="ELONMARS logo"
+            alt="ELONMARS Logo"
         >
 
         <span>ELONMARS</span>
 
     </a>
 
+
     <ul class="nav-links">
 
-        <li><a href="#story">STORY</a></li>
-        <li><a href="#token">TOKEN</a></li>
-        <li><a href="#mission">MISSION</a></li>
-        <li><a href="#crew">CREW</a></li>
-        <li><a href="#log">LOG</a></li>
+        <li>
+            <a href="#story">STORY</a>
+        </li>
+
+        <li>
+            <a href="#token">TOKEN</a>
+        </li>
+
+        <li>
+            <a href="#mission">MISSION</a>
+        </li>
+
+        <li>
+            <a href="#crew">CREW</a>
+        </li>
+
+        <li>
+            <a href="#comic">COMIC</a>
+        </li>
+
+        <li>
+            <a href="#log">LOG</a>
+        </li>
 
     </ul>
 
-    <!-- CHANGE THIS TO YOUR REAL X URL -->
+
+    <!-- Replace with your actual X account -->
 
     <a
         href="https://x.com/"
@@ -900,9 +1549,12 @@
 </nav>
 
 
-<!-- ================= HERO ================= -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <header id="home" class="hero">
+
 
     <div class="hero-content">
 
@@ -910,16 +1562,26 @@
             ● TRANSMISSION ONLINE
         </span>
 
-        <h1>ELONMARS</h1>
+
+        <h1>
+            ELONMARS
+        </h1>
+
 
         <h2>
             THE MEME COIN THAT TOOK A WRONG TURN TO MARS.
         </h2>
 
-        <p>
-            A meme. A rocket. One very questionable decision.
+
+        <p class="hero-description">
+
+            A meme. A rocket.
+            One very questionable decision.
+
             Welcome to the ELONMARS universe.
+
         </p>
+
 
         <div class="hero-buttons">
 
@@ -930,14 +1592,16 @@
                 BUY $ELONMARS
             </a>
 
+
             <a
-                href="#story"
+                href="#comic"
                 class="btn btn-outline"
             >
                 READ THE COMIC
             </a>
 
         </div>
+
 
         <div class="ticker">
 
@@ -964,15 +1628,22 @@
 </header>
 
 
-<!-- ================= STORY ================= -->
+<!-- =====================================================
+     STORY
+===================================================== -->
 
 <section id="story" class="section">
 
+
     <div class="section-heading">
 
-        <span>MISSION FILE 001</span>
+        <span>
+            MISSION FILE 001
+        </span>
 
-        <h2>HOW DID WE GET HERE?</h2>
+        <h2>
+            HOW DID WE GET HERE?
+        </h2>
 
         <p>
             It was supposed to be a simple trip to Mars.
@@ -983,6 +1654,7 @@
 
 
     <div class="story-grid">
+
 
         <div class="story-text">
 
@@ -1000,30 +1672,32 @@
 
             <p>
                 And somehow...
-                <strong>we ended up on Mars.</strong>
+                <strong>
+                    we ended up on Mars.
+                </strong>
             </p>
 
-            <br>
 
             <a
-                href="comic/"
+                href="#comic"
                 class="btn btn-primary"
             >
-                START THE COMIC →
+                ENTER THE STORY →
             </a>
 
         </div>
 
 
         <a
-            href="comic/"
+            href="#comic"
             class="comic-preview"
         >
 
             <img
                 src="assets/comic-cover.png"
-                alt="ELONMARS The Comic cover"
+                alt="ELONMARS Comic Cover"
             >
+
 
             <div class="comic-overlay">
 
@@ -1032,7 +1706,8 @@
                 </h3>
 
                 <p>
-                    One rocket. One meme coin.
+                    One rocket.
+                    One meme coin.
                     One very wrong destination.
                 </p>
 
@@ -1045,26 +1720,91 @@
 </section>
 
 
-<!-- ================= TOKEN ================= -->
+<!-- =====================================================
+     TOKEN
+===================================================== -->
 
 <section id="token" class="section">
 
+
     <div class="section-heading">
 
-        <span>SYSTEM INFO</span>
+        <span>
+            SYSTEM INFO
+        </span>
 
-        <h2>THE TOKEN</h2>
+        <h2>
+            THE TOKEN
+        </h2>
 
         <p>
-            Simple. Transparent. No unnecessary jargon.
+            Everything you need to know about $ELONMARS.
         </p>
+
+    </div>
+
+
+    <div class="token-layout">
+
+
+        <div class="token-stat">
+
+            <span>
+                TICKER
+            </span>
+
+            <strong>
+                $ELONMARS
+            </strong>
+
+        </div>
+
+
+        <div class="token-stat">
+
+            <span>
+                NETWORK
+            </span>
+
+            <strong>
+                SOLANA
+            </strong>
+
+        </div>
+
+
+        <div class="token-stat">
+
+            <span>
+                TOTAL SUPPLY
+            </span>
+
+            <strong>
+                1B
+            </strong>
+
+        </div>
+
+
+        <div class="token-stat">
+
+            <span>
+                CONTRACT
+            </span>
+
+            <strong>
+                TBA
+            </strong>
+
+        </div>
 
     </div>
 
 
     <div class="terminal">
 
-        <div class="terminal-top">
+
+        <div class="terminal-header">
 
             ELONMARS // TOKEN_DATABASE
 
@@ -1072,6 +1812,7 @@
 
 
         <div class="terminal-body">
+
 
             <div class="token-row">
 
@@ -1125,7 +1866,7 @@
                 </span>
 
                 <span
-                    class="ca"
+                    class="ca-box"
                     id="caText"
                 >
                     TBA — COMING SOON
@@ -1162,18 +1903,26 @@
 </section>
 
 
-<!-- ================= MISSION CONTROL ================= -->
+<!-- =====================================================
+     MISSION / ROADMAP
+===================================================== -->
 
 <section id="mission" class="section">
 
+
     <div class="section-heading">
 
-        <span>MISSION CONTROL</span>
+        <span>
+            MISSION CONTROL
+        </span>
 
-        <h2>THE ROADMAP</h2>
+        <h2>
+            THE ROADMAP
+        </h2>
 
         <p>
-            No corporate promises. Just the next coordinates.
+            No complicated promises.
+            Just the next coordinates.
         </p>
 
     </div>
@@ -1192,10 +1941,21 @@
 
             <ul>
 
-                <li>Website launch</li>
-                <li>X launch</li>
-                <li>Community building</li>
-                <li>Token launch</li>
+                <li>
+                    Website launch
+                </li>
+
+                <li>
+                    X launch
+                </li>
+
+                <li>
+                    Community building
+                </li>
+
+                <li>
+                    Token launch
+                </li>
 
             </ul>
 
@@ -1212,10 +1972,21 @@
 
             <ul>
 
-                <li>Comic Chapter 1</li>
-                <li>Meme expansion</li>
-                <li>Community content</li>
-                <li>More chaos</li>
+                <li>
+                    Comic Chapter 1
+                </li>
+
+                <li>
+                    Meme expansion
+                </li>
+
+                <li>
+                    Community content
+                </li>
+
+                <li>
+                    More chaos
+                </li>
 
             </ul>
 
@@ -1232,10 +2003,21 @@
 
             <ul>
 
-                <li>More comic chapters</li>
-                <li>More characters</li>
-                <li>Martian lore</li>
-                <li>???</li>
+                <li>
+                    More comic chapters
+                </li>
+
+                <li>
+                    More characters
+                </li>
+
+                <li>
+                    Martian lore
+                </li>
+
+                <li>
+                    ???
+                </li>
 
             </ul>
 
@@ -1252,10 +2034,21 @@
 
             <ul>
 
-                <li>More memes</li>
-                <li>More content</li>
-                <li>Bigger community</li>
-                <li>???</li>
+                <li>
+                    More memes
+                </li>
+
+                <li>
+                    More content
+                </li>
+
+                <li>
+                    Bigger community
+                </li>
+
+                <li>
+                    ???
+                </li>
 
             </ul>
 
@@ -1266,18 +2059,27 @@
 </section>
 
 
-<!-- ================= CREW ================= -->
+<!-- =====================================================
+     CREW
+===================================================== -->
 
 <section id="crew" class="section">
 
+
     <div class="section-heading">
 
-        <span>CREW DATABASE</span>
+        <span>
+            CREW DATABASE
+        </span>
 
-        <h2>MEET THE CREW</h2>
+        <h2>
+            MEET THE CREW
+        </h2>
 
         <p>
-            Four passengers. One rocket. Absolutely no sensible plan.
+            Four passengers.
+            One rocket.
+            Absolutely no sensible plan.
         </p>
 
     </div>
@@ -1292,10 +2094,13 @@
                 🧑‍🚀
             </div>
 
-            <h3>ELON</h3>
+            <h3>
+                ELON
+            </h3>
 
             <p>
-                The boss. The visionary.
+                The boss.
+                The visionary.
                 The reason everything went wrong.
             </p>
 
@@ -1308,7 +2113,9 @@
                 👩‍🚀
             </div>
 
-            <h3>SARAH</h3>
+            <h3>
+                SARAH
+            </h3>
 
             <p>
                 Chief Engineer.
@@ -1324,11 +2131,14 @@
                 🤖
             </div>
 
-            <h3>GROK</h3>
+            <h3>
+                GROK
+            </h3>
 
             <p>
                 AI assistant.
-                Extremely intelligent. Zero filter.
+                Extremely intelligent.
+                Zero filter.
             </p>
 
         </div>
@@ -1340,7 +2150,9 @@
                 🐕
             </div>
 
-            <h3>DOGE</h3>
+            <h3>
+                DOGE
+            </h3>
 
             <p>
                 Nobody knows why he's here.
@@ -1354,18 +2166,102 @@
 </section>
 
 
-<!-- ================= TRANSMISSION LOG ================= -->
+<!-- =====================================================
+     COMIC
+===================================================== -->
 
-<section id="log" class="section">
+<section id="comic" class="section">
+
 
     <div class="section-heading">
 
-        <span>BLACK BOX</span>
+        <span>
+            ARCHIVE 001
+        </span>
 
-        <h2>TRANSMISSION LOG</h2>
+        <h2>
+            ELONMARS: THE COMIC
+        </h2>
 
         <p>
-            Every major ELONMARS update gets logged here.
+            The story behind the wrong turn.
+        </p>
+
+    </div>
+
+
+    <div class="comic-archive">
+
+
+        <div>
+
+            <img
+                class="comic-cover"
+                src="assets/comic-cover.png"
+                alt="ELONMARS The Comic"
+            >
+
+        </div>
+
+
+        <div class="comic-info">
+
+            <h3>
+                THE WRONG TURN
+            </h3>
+
+            <p>
+                Elon wants to reach Mars.
+                Sarah wants everything to work.
+                Grok wants everyone to know how bad the plan is.
+                Doge just wants to come along.
+            </p>
+
+            <p>
+                What could possibly go wrong?
+            </p>
+
+
+            <div class="comic-pages">
+
+                CHAPTER 01 · 8 PAGES
+
+            </div>
+
+
+            <a
+                href="comic/"
+                class="btn btn-primary"
+            >
+                READ CHAPTER 01 →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TRANSMISSION LOG
+===================================================== -->
+
+<section id="log" class="section">
+
+
+    <div class="section-heading">
+
+        <span>
+            BLACK BOX
+        </span>
+
+        <h2>
+            TRANSMISSION LOG
+        </h2>
+
+        <p>
+            Major ELONMARS transmissions are recorded here.
         </p>
 
     </div>
@@ -1386,7 +2282,7 @@
         </p>
 
         <p class="blink">
-            > Awaiting next transmission...
+            &gt; Awaiting next transmission...
         </p>
 
     </div>
@@ -1394,20 +2290,30 @@
 </section>
 
 
-<!-- ================= COMMUNITY ================= -->
+<!-- =====================================================
+     COMMUNITY
+===================================================== -->
 
 <section class="section community">
+
 
     <h2>
         JOIN THE CREW.
     </h2>
 
+
     <p>
-        We're building ELONMARS one meme at a time.
-        Follow the transmission and see where this rocket goes next.
+
+        We're building ELONMARS
+        one meme at a time.
+
+        Follow the transmission
+        and see where this rocket goes next.
+
     </p>
 
-    <!-- CHANGE TO YOUR REAL X ACCOUNT -->
+
+    <!-- Replace with your actual X account -->
 
     <a
         href="https://x.com/"
@@ -1421,23 +2327,39 @@
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-<footer>
+<footer class="footer">
 
-    <strong>
+
+    <div class="footer-brand">
         ELONMARS
-    </strong>
+    </div>
+
 
     <div class="footer-links">
 
-        <a href="#home">HOME</a>
+        <a href="#home">
+            HOME
+        </a>
 
-        <a href="#story">STORY</a>
+        <a href="#story">
+            STORY
+        </a>
 
-        <a href="#token">TOKEN</a>
+        <a href="#token">
+            TOKEN
+        </a>
 
-        <a href="comic/">COMIC</a>
+        <a href="#mission">
+            MISSION
+        </a>
+
+        <a href="#comic">
+            COMIC
+        </a>
 
         <a
             href="https://x.com/"
@@ -1467,47 +2389,53 @@
 </footer>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
-    function copyCA() {
+function copyCA() {
 
-        const ca = document
-            .getElementById("caText")
-            .innerText
-            .trim();
+    const caElement =
+        document.getElementById("caText");
 
-        if (
-            ca.includes("TBA") ||
-            ca.includes("COMING SOON")
-        ) {
+    const ca =
+        caElement.innerText.trim();
 
-            alert(
-                "Contract Address is not available yet."
-            );
+    if (
+        ca.includes("TBA") ||
+        ca.includes("COMING SOON")
+    ) {
 
-            return;
-        }
+        alert(
+            "Contract Address is not available yet."
+        );
 
-        navigator.clipboard
-            .writeText(ca)
-            .then(() => {
-
-                alert(
-                    "Contract Address copied!"
-                );
-
-            })
-            .catch(() => {
-
-                alert(
-                    "Unable to copy Contract Address."
-                );
-
-            });
-
+        return;
     }
 
+    navigator.clipboard
+        .writeText(ca)
+        .then(function () {
+
+            alert(
+                "Contract Address copied!"
+            );
+
+        })
+        .catch(function () {
+
+            alert(
+                "Unable to copy Contract Address."
+            );
+
+        });
+
+}
+
 </script>
+
 
 </body>
 </html>
