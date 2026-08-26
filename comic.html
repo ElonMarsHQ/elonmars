@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELONMARS | Chapter 1 Comic</title>
+    <title>ELONMARS | Comic Reader</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
@@ -22,80 +22,122 @@
             color: var(--text-main);
             font-family: 'Space Grotesk', sans-serif;
             margin: 0;
-            padding: 20px;
-            text-align: center;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .header-title {
-            font-family: 'VT323', monospace;
-            font-size: 3rem;
-            color: var(--mars-orange);
-            margin-bottom: 10px;
+        .reader-header {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(10, 10, 12, 0.95);
+            border-bottom: 2px solid var(--mars-red);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-sizing: border-box;
         }
         .btn-back {
-            display: inline-block;
-            padding: 10px 20px;
-            background: transparent;
             color: var(--amber-yellow);
-            border: 1px solid var(--amber-yellow);
+            text-decoration: none;
             font-family: 'VT323', monospace;
             font-size: 1.2rem;
-            text-decoration: none;
-            margin-bottom: 30px;
+            border: 1px solid var(--amber-yellow);
+            padding: 5px 15px;
+            border-radius: 4px;
             transition: 0.2s;
         }
         .btn-back:hover {
             background: var(--amber-yellow);
             color: #000;
         }
-        .comic-container {
-            max-width: 800px;
-            margin: 0 auto;
+        .reader-title {
+            font-family: 'VT323', monospace;
+            font-size: 1.5rem;
+            color: var(--mars-orange);
+            margin: 0;
+        }
+        .comic-reader-container {
+            width: 100%;
+            max-width: 700px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            background: #000;
+            min-height: 100vh;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
         }
-        .comic-panel {
-            background: var(--card-bg);
-            border: 2px solid var(--border-color);
-            padding: 15px;
-            border-radius: 8px;
+        .comic-page {
+            width: 100%;
+            display: block;
+            margin: 0;
+            padding: 0;
+            line-height: 0;
         }
-        .comic-panel img {
+        .comic-page img {
             width: 100%;
             height: auto;
-            border-radius: 4px;
-            border: 1px solid var(--mars-orange);
+            display: block;
         }
-        .comic-caption {
+        .end-chapter {
+            padding: 40px 20px;
+            text-align: center;
             font-family: 'VT323', monospace;
-            font-size: 1.4rem;
-            color: var(--text-main);
-            margin-top: 10px;
+            font-size: 1.6rem;
+            color: var(--amber-yellow);
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
         }
     </style>
 </head>
 <body>
 
-    <a href="index.html" class="btn-back">&larr; BACK TO HOME</a>
-    
-    <h1 class="header-title">CHAPTER 1: THE WRONG TURN</h1>
+    <div class="reader-header">
+        <a href="index.html" class="btn-back">&larr; HOME</a>
+        <h2 class="reader-title">ELONMARS COMIC</h2>
+        <div style="width: 60px;"></div>
+    </div>
 
-    <div class="comic-container">
-
-        <!-- PANEL 1 -->
-        <div class="comic-panel">
-            <img src="images/comic-1.png" alt="Panel 1">
-            <p class="comic-caption">Panel 1: "It started with a single tweet..."</p>
+    <div class="comic-reader-container">
+        
+        <!-- COVER -->
+        <div class="comic-page">
+            <img src="images/elonmars-cover.png" alt="ElonMars Comic Cover">
         </div>
 
-        <!-- PANEL 2 -->
-        <div class="comic-panel">
-            <img src="images/comic-2.png" alt="Panel 2">
-            <p class="comic-caption">Panel 2: "Destination: Moon. Or so we thought."</p>
+        <!-- ISI COMIC PAGE 1 - 8 -->
+        <div class="comic-page">
+            <img src="images/elonmars-page1.png" alt="Page 1">
         </div>
-
+        <div class="comic-page">
+            <img src="images/elonmars-page2.png" alt="Page 2">
+        </div>
+        <div class="comic-page">
+            <img src="images/elonmars-page3.png" alt="Page 3">
+        </div>
+        <div class="comic-page">
+            <img src="images/elonmars-page4.png" alt="Page 4">
+        </div>
+        <div class="comic-page">
+            <img src="images/elonmars-page5.png" alt="Page 5">
+        </div>
+        <div class="comic-page">
+            <img src="images/elonmars-page6.png" alt="Page 6">
+        </div>
+        <div class="comic-page">
+            <img src="images/elonmars-page7.png" alt="Page 7">
+        </div>
+        <div class="comic-page">
+            <img src="images/elonmars-page8.png" alt="Page 8">
+        </div>
+        
+        <div class="end-chapter">
+            <p>TO BE CONTINUED...</p>
+            <a href="index.html" class="btn-back" style="display: inline-block; margin-top: 10px;">BACK TO HOME</a>
+        </div>
     </div>
 
 </body>
 </html>
-
