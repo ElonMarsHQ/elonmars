@@ -39,9 +39,7 @@
             line-height: 1.6;
         }
 
-        /* =========================
-           CRT EFFECT
-        ========================= */
+        /* CRT EFFECT */
         .crt::after {
             content: "";
             display: block;
@@ -60,9 +58,7 @@
             opacity: 0.6;
         }
 
-        /* =========================
-           NAVBAR
-        ========================= */
+        /* NAVBAR */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -108,9 +104,7 @@
             color: var(--amber-yellow);
         }
 
-        /* =========================
-           BUTTONS
-        ========================= */
+        /* BUTTONS */
         .btn-primary,
         .btn-secondary {
             padding: 10px 20px;
@@ -149,9 +143,7 @@
             transform: translateY(-2px);
         }
 
-        /* =========================
-           GENERAL SECTIONS
-        ========================= */
+        /* GENERAL SECTIONS */
         .section-container {
             padding: 70px 20px;
             max-width: 1100px;
@@ -168,9 +160,7 @@
             padding-left: 12px;
         }
 
-        /* =========================
-           HERO SECTION & ANIMATION
-        ========================= */
+        /* HERO SECTION */
         .hero-section {
             min-height: 700px;
             padding: 80px 20px;
@@ -232,17 +222,10 @@
             text-align: center;
         }
 
-        /* Animasi Melayang untuk Hero Image */
         @keyframes spaceFloat {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-18px) rotate(1.5deg);
-            }
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-18px) rotate(1.5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
 
         .hero-visual img {
@@ -253,9 +236,7 @@
             animation: spaceFloat 5s ease-in-out infinite;
         }
 
-        /* =========================
-           CARDS & TERMINALS
-        ========================= */
+        /* CARDS & TERMINALS */
         .terminal-card,
         .roadmap-card,
         .crew-card,
@@ -286,9 +267,6 @@
             box-shadow: inset 0 0 10px rgba(0,255,102,0.05);
         }
 
-        /* =========================
-           THE MARS INCIDENT (TIMELINE)
-        ========================= */
         .incident-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -310,9 +288,6 @@
             margin: 0 0 10px 0;
         }
 
-        /* =========================
-           OFFICIAL COMIC PREVIEW
-        ========================= */
         .comic-preview-box {
             background: var(--card-bg);
             border: 2px solid var(--mars-red);
@@ -338,9 +313,6 @@
             flex: 1;
         }
 
-        /* =========================
-           GRIDS & TOKENOMICS
-        ========================= */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -409,9 +381,6 @@
             word-break: break-all;
         }
 
-        /* =========================
-           FAQ
-        ========================= */
         .faq-item {
             margin-bottom: 15px;
         }
@@ -437,9 +406,6 @@
             50% { opacity: 0; }
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
         .footer {
             padding: 45px 20px;
             text-align: center;
@@ -471,9 +437,6 @@
             line-height: 1.5;
         }
 
-        /* =========================
-           RESPONSIVE DESIGN
-        ========================= */
         @media (max-width: 800px) {
             .hero-section {
                 flex-direction: column;
@@ -549,7 +512,8 @@
             <p class="subtext">A meme. A rocket. One very questionable decision.</p>
             
             <div class="hero-buttons">
-                <a href="https://pump.fun" target="_blank" class="btn-primary">[ BUY ON PUMP.FUN ]</a>
+                <!-- LINK KE COIN PUMP.FUN UTAMA -->
+                <a href="https://pump.fun/coin/8K6rQTDWgQ3SQCiEC2ZLWA7BMQKjxpDV3KtvRLzipump" target="_blank" rel="noopener noreferrer" class="btn-primary">[ BUY ON PUMP.FUN ]</a>
                 <a href="#token" class="btn-secondary">[ VIEW CHART / CA ]</a>
             </div>
 
@@ -559,7 +523,6 @@
         </div>
 
         <div class="hero-visual">
-            <!-- FOTO UTAMA DENGAN EFEK MELAYANG -->
             <img src="images/website-utama.png" alt="ELONMARS Space Visual">
         </div>
     </section>
@@ -615,7 +578,7 @@
                 <p>WEBSITE   : ✓ ONLINE</p>
                 <p>X ACCOUNT : ✓ ONLINE</p>
                 <p>COMIC     : ✓ ISSUE #1 LIVE</p>
-                <p>TOKEN     : <span style="color: var(--terminal-green);">🟢 LIVE ON PUMP.FUN</span></p>
+                <p>TOKEN     : <a href="https://pump.fun/coin/8K6rQTDWgQ3SQCiEC2ZLWA7BMQKjxpDV3KtvRLzipump" target="_blank" style="color: var(--terminal-green); text-decoration: underline;">🟢 LIVE ON PUMP.FUN</a></p>
                 <p>COMMUNITY : IN PROGRESS</p>
                 <hr style="border-color: var(--terminal-green);">
                 <p>LAST TRANSMISSION:</p>
