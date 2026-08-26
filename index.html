@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ELONMARS | To The Moon? Wrong Planet.</title>
+    <title>ELONMARS | Official Meme Coin & Universe</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +19,7 @@
             --text-main: #f0f0f0;
             --card-bg: #141419;
             --border-color: #2a2a35;
+            --terminal-green: #00ff66;
         }
 
         * {
@@ -42,7 +42,6 @@
         /* =========================
            CRT EFFECT
         ========================= */
-
         .crt::after {
             content: "";
             display: block;
@@ -51,11 +50,10 @@
             left: 0;
             bottom: 0;
             right: 0;
-            background:
-                linear-gradient(
-                    rgba(18, 16, 16, 0) 50%,
-                    rgba(0, 0, 0, 0.25) 50%
-                );
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.25) 50%
+            );
             background-size: 100% 4px;
             z-index: 999;
             pointer-events: none;
@@ -65,7 +63,6 @@
         /* =========================
            NAVBAR
         ========================= */
-
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -78,6 +75,7 @@
             z-index: 100;
             flex-wrap: wrap;
             gap: 15px;
+            backdrop-filter: blur(8px);
         }
 
         .brand-text {
@@ -85,6 +83,7 @@
             font-size: 2.2rem;
             color: var(--mars-orange);
             letter-spacing: 2px;
+            text-decoration: none;
         }
 
         .nav-links {
@@ -101,6 +100,7 @@
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: bold;
+            font-family: 'VT323', monospace;
             transition: 0.2s ease;
         }
 
@@ -111,7 +111,6 @@
         /* =========================
            BUTTONS
         ========================= */
-
         .btn-primary,
         .btn-secondary {
             padding: 10px 20px;
@@ -123,6 +122,7 @@
             cursor: pointer;
             border-radius: 2px;
             transition: 0.2s ease;
+            text-align: center;
         }
 
         .btn-primary {
@@ -134,6 +134,7 @@
         .btn-primary:hover {
             background: var(--amber-yellow);
             border-color: var(--amber-yellow);
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
@@ -145,12 +146,12 @@
         .btn-secondary:hover {
             background: var(--mars-orange);
             color: #000;
+            transform: translateY(-2px);
         }
 
         /* =========================
            GENERAL SECTIONS
         ========================= */
-
         .section-container {
             padding: 70px 20px;
             max-width: 1100px;
@@ -168,41 +169,37 @@
         }
 
         /* =========================
-           HERO
+           HERO SECTION
         ========================= */
-
         .hero-section {
-            min-height: 650px;
-            padding: 100px 20px 80px;
+            min-height: 700px;
+            padding: 80px 20px;
             max-width: 1100px;
             margin: 0 auto;
             border-bottom: 1px solid var(--border-color);
-
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-
-            text-align: center;
-            gap: 30px;
+            justify-content: space-between;
+            gap: 40px;
         }
 
         .hero-content {
-            max-width: 850px;
+            flex: 1;
+            text-align: left;
         }
 
         .hero-content h1 {
             font-family: 'VT323', monospace;
-            font-size: clamp(4rem, 10vw, 8rem);
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
             line-height: 0.9;
             color: var(--mars-red);
             margin: 0;
-            letter-spacing: 5px;
+            letter-spacing: 3px;
             text-shadow: 3px 3px #550000;
         }
 
         .hero-content h2 {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
             color: var(--amber-yellow);
             margin: 20px 0 10px;
         }
@@ -216,38 +213,44 @@
         .hero-buttons {
             display: flex;
             gap: 15px;
-            justify-content: center;
             flex-wrap: wrap;
         }
 
         .hero-ticker {
             font-family: 'VT323', monospace;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             background: var(--card-bg);
             border: 1px dashed var(--mars-orange);
-            padding: 12px 20px;
+            padding: 10px 18px;
             margin-top: 25px;
             color: var(--amber-yellow);
             display: inline-block;
         }
 
-        /* =========================
-           CARDS
-        ========================= */
+        .hero-visual {
+            flex: 1;
+            text-align: center;
+        }
 
+        .hero-visual img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid var(--mars-orange);
+            box-shadow: 0 0 25px rgba(255, 102, 0, 0.25);
+        }
+
+        /* =========================
+           CARDS & TERMINALS
+        ========================= */
         .terminal-card,
-        .terminal-log,
         .roadmap-card,
         .crew-card,
-        .meme-card {
+        .faq-item {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             padding: 24px;
             border-radius: 4px;
-        }
-
-        .terminal-card {
-            box-shadow: 0 0 20px rgba(255, 51, 51, 0.04);
         }
 
         .terminal-header {
@@ -259,63 +262,102 @@
             padding-bottom: 8px;
         }
 
+        .terminal-log {
+            background: #050507;
+            border: 1px solid var(--terminal-green);
+            padding: 20px;
+            font-family: 'VT323', monospace;
+            color: var(--terminal-green);
+            font-size: 1.2rem;
+            border-radius: 4px;
+            box-shadow: inset 0 0 10px rgba(0,255,102,0.05);
+        }
+
         /* =========================
-           TOKEN
+           THE MARS INCIDENT (TIMELINE)
         ========================= */
-
-        .token-row {
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
+        .incident-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
         }
 
-        .token-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .ca-box {
-            background: #000;
-            padding: 7px 12px;
+        .incident-card {
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
-            font-family: monospace;
-            color: var(--amber-yellow);
-            font-size: 0.9rem;
-            word-break: break-all;
+            border-top: 3px solid var(--mars-orange);
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        .incident-card h4 {
+            font-family: 'VT323', monospace;
+            font-size: 1.4rem;
+            color: var(--mars-orange);
+            margin: 0 0 10px 0;
         }
 
         /* =========================
-           GRIDS
+           OFFICIAL COMIC PREVIEW
         ========================= */
+        .comic-preview-box {
+            background: var(--card-bg);
+            border: 2px solid var(--mars-red);
+            padding: 30px;
+            border-radius: 6px;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .comic-preview-img {
+            flex: 1;
+            max-width: 320px;
+        }
+
+        .comic-preview-img img {
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .comic-preview-info {
+            flex: 1;
+        }
+
+        /* =========================
+           GRIDS & TOKENOMICS
+        ========================= */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
 
         .crew-grid,
-        .roadmap-grid,
-        .meme-grid {
+        .roadmap-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
         }
 
-        .crew-avatar {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        .crew-avatar img {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--mars-orange);
+        .crew-card {
+            text-align: center;
         }
 
         .crew-card h3 {
             font-family: 'VT323', monospace;
             font-size: 1.8rem;
             color: var(--mars-orange);
-            margin: 0 0 10px;
+            margin: 10px 0 5px;
+        }
+
+        .crew-role {
+            font-family: 'VT323', monospace;
+            color: var(--amber-yellow);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: block;
         }
 
         .roadmap-card h3 {
@@ -335,18 +377,43 @@
             color: #ccc;
         }
 
-        /* =========================
-           TERMINAL LOG
-        ========================= */
-
-        .terminal-log {
-            font-family: 'VT323', monospace;
-            color: #00ff66;
-            font-size: 1.2rem;
+        .token-row {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .terminal-log p {
-            margin: 8px 0;
+        .ca-box {
+            background: #000;
+            padding: 7px 12px;
+            border: 1px solid var(--border-color);
+            font-family: monospace;
+            color: var(--amber-yellow);
+            font-size: 0.85rem;
+            word-break: break-all;
+        }
+
+        /* =========================
+           FAQ
+        ========================= */
+        .faq-item {
+            margin-bottom: 15px;
+        }
+
+        .faq-item h4 {
+            font-family: 'VT323', monospace;
+            font-size: 1.4rem;
+            color: var(--mars-orange);
+            margin: 0 0 8px 0;
+        }
+
+        .faq-item p {
+            margin: 0;
+            color: #ccc;
+            font-size: 0.95rem;
         }
 
         .blink {
@@ -354,15 +421,12 @@
         }
 
         @keyframes blinker {
-            50% {
-                opacity: 0;
-            }
+            50% { opacity: 0; }
         }
 
         /* =========================
            FOOTER
         ========================= */
-
         .footer {
             padding: 45px 20px;
             text-align: center;
@@ -387,162 +451,57 @@
         }
 
         .disclaimer {
-            max-width: 650px;
+            max-width: 700px;
             margin: 20px auto 0;
             font-size: 0.75rem;
             color: #555;
+            line-height: 1.5;
         }
 
         /* =========================
-           TABLET
+           RESPONSIVE DESIGN
         ========================= */
-
         @media (max-width: 800px) {
-
-            .navbar {
-                justify-content: center;
-                padding: 14px 20px;
-            }
-
-            .nav-brand {
-                width: 100%;
-                text-align: center;
-            }
-
-            .nav-links {
-                justify-content: center;
-            }
-
-            .section-container {
-                padding: 55px 20px;
-            }
-
             .hero-section {
-                min-height: 600px;
-            }
-        }
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 600px) {
-
-            .navbar {
-                padding: 12px 15px;
-            }
-
-            .brand-text {
-                font-size: 2rem;
-            }
-
-            .nav-links {
-                gap: 12px;
-            }
-
-            .nav-links a {
-                font-size: 0.8rem;
-            }
-
-            .navbar > .btn-primary {
-                font-size: 1rem;
-                padding: 8px 15px;
-            }
-
-            .hero-section {
-                min-height: 580px;
-                padding: 75px 18px 60px;
-            }
-
-            .hero-content h1 {
-                font-size: clamp(4rem, 20vw, 6rem);
-                letter-spacing: 2px;
-            }
-
-            .hero-content h2 {
-                font-size: 1rem;
-                line-height: 1.4;
-            }
-
-            .subtext {
-                font-size: 0.95rem;
-            }
-
-            .hero-buttons {
                 flex-direction: column;
-                width: 100%;
+                text-align: center;
+                min-height: auto;
+                padding-top: 60px;
             }
-
-            .hero-buttons a {
-                width: 100%;
+            .hero-content {
                 text-align: center;
             }
-
-            .hero-ticker {
-                width: 100%;
-                font-size: 1.1rem;
-                padding: 10px;
+            .hero-buttons {
+                justify-content: center;
             }
-
-            .section-container {
-                padding: 50px 15px;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .crew-grid,
-            .roadmap-grid,
-            .meme-grid {
+            .comic-preview-box, .grid-2 {
+                flex-direction: column;
                 grid-template-columns: 1fr;
             }
-
-            .terminal-card,
-            .terminal-log,
-            .roadmap-card,
-            .crew-card {
-                padding: 20px;
+            .navbar {
+                justify-content: center;
             }
+            .nav-links {
+                justify-content: center;
+            }
+        }
 
+        @media (max-width: 600px) {
+            .crew-grid, .roadmap-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .hero-buttons a {
+                width: 100%;
+            }
             .token-row {
                 flex-direction: column;
                 align-items: flex-start;
             }
-
             .ca-box {
                 width: 100%;
-            }
-
-            .footer {
-                padding: 35px 15px;
-            }
-        }
-
-        /* =========================
-           SMALL PHONES
-        ========================= */
-
-        @media (max-width: 400px) {
-
-            .nav-links {
-                gap: 9px;
-            }
-
-            .nav-links a {
-                font-size: 0.75rem;
-            }
-
-            .hero-section {
-                padding-top: 65px;
-            }
-
-            .hero-content h1 {
-                font-size: 4rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
             }
         }
     </style>
@@ -550,474 +509,271 @@
 
 <body class="crt">
 
-    <!-- =========================
-         NAVBAR
-    ========================= -->
-
+    <!-- NAVBAR -->
     <nav class="navbar">
-
-        <div class="nav-brand">
-            <span class="brand-text">ELONMARS</span>
-        </div>
+        <a href="#hero" class="brand-text">ELONMARS</a>
 
         <ul class="nav-links">
-            <li>
-                <a href="#hero">HOME</a>
-            </li>
-
-            <li>
-                <a href="#story">STORY</a>
-            </li>
-
-            <li>
-                <a href="#comic">COMIC</a>
-            </li>
-
-            <li>
-                <a href="#token">TOKEN</a>
-            </li>
-
-            <li>
-                <a href="#roadmap">ROADMAP</a>
-            </li>
-
-            <li>
-                <a href="#crew">CREW</a>
-            </li>
+            <li><a href="#hero">HOME</a></li>
+            <li><a href="#story">STORY</a></li>
+            <li><a href="#comic">COMIC</a></li>
+            <li><a href="#token">TOKEN</a></li>
+            <li><a href="#roadmap">ROADMAP</a></li>
+            <li><a href="#crew">CREW</a></li>
+            <li><a href="#faq">FAQ</a></li>
         </ul>
 
-        <!-- OFFICIAL X ACCOUNT -->
-        <a
-            href="https://x.com/ElonMarsHQ"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-primary"
-        >
+        <a href="https://x.com/ElonMarsHQ" target="_blank" rel="noopener noreferrer" class="btn-primary">
             JOIN X &rarr;
         </a>
-
     </nav>
 
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
+    <!-- HERO SECTION -->
     <section id="hero" class="hero-section">
-
         <div class="hero-content">
-
             <h1>ELONMARS</h1>
-
-            <h2>
-                THE MEME COIN THAT TOOK A WRONG TURN TO MARS.
-            </h2>
-
-            <p class="subtext">
-                A meme. A rocket. One very questionable decision.
-            </p>
-
+            <h2>THE MEME COIN THAT TOOK A WRONG TURN TO MARS.</h2>
+            <p class="subtext">A meme. A rocket. One very questionable decision.</p>
+            
             <div class="hero-buttons">
-
-                <a href="#token" class="btn-primary">
-                    [ BUY $ELONMARS ]
-                </a>
-
-                <a href="comic.html" class="btn-secondary">
-                    [ READ COMIC ]
-                </a>
-
+                <a href="https://pump.fun" target="_blank" class="btn-primary">[ BUY ON PUMP.FUN ]</a>
+                <a href="#token" class="btn-secondary">[ VIEW CHART / CA ]</a>
             </div>
 
             <div class="hero-ticker">
                 🪐 $ELONMARS &middot; TO THE MOON? WRONG PLANET.
             </div>
-
         </div>
 
+        <div class="hero-visual">
+            <img src="images/elonmars-cover.png" alt="ELONMARS Hero Visual">
+        </div>
     </section>
 
-
-    <!-- =========================
-         STORY
-    ========================= -->
-
+    <!-- THE MARS INCIDENT (STORY) -->
     <section id="story" class="section-container">
-
-        <h2 class="section-title">
-            HOW DID WE END UP ON MARS?
-        </h2>
-
-        <div class="terminal-card">
-
-            <p>
-                It started with a tweet.
-            </p>
-
-            <p>
-                Then came a rocket.
-            </p>
-
-            <p>
-                Then came a wrong turn.
-            </p>
-
-            <p
-                style="
-                    color: var(--mars-orange);
-                    font-weight: bold;
-                    font-size: 1.2rem;
-                "
-            >
-                And somehow… we ended up on Mars.
-            </p>
-
+        <h2 class="section-title">THE MARS INCIDENT</h2>
+        
+        <div class="incident-grid">
+            <div class="incident-card">
+                <h4>MISSION 01 — EARTH</h4>
+                <p>🚀 Launch initiated. Everything was according to the plan, or so Elon thought.</p>
+            </div>
+            <div class="incident-card">
+                <h4>MISSION 02 — ERROR</h4>
+                <p>⚠ Navigation malfunction. Grok's Honesty Module was accidentally turned off.</p>
+            </div>
+            <div class="incident-card">
+                <h4>MISSION 03 — MARS</h4>
+                <p>🪐 Destination changed. Crash landed on the red planet with $50 budget left.</p>
+            </div>
+            <div class="incident-card">
+                <h4>MISSION 04 — ???</h4>
+                <p>👽 Nobody knows what happens next. Strange transmissions coming from deep space.</p>
+            </div>
         </div>
-
     </section>
 
-
-    <!-- =========================
-         COMIC
-    ========================= -->
-
-    <section id="comic" class="section-container" style="text-align: center;">
-
-        <h2 class="section-title" style="display: inline-block; border-left: none; padding-left: 0;">
-            THE OFFICIAL COMIC
-        </h2>
-
-        <div class="terminal-card" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 15px;">
-            <p style="color: #aaa; margin: 0;">
-                Witness the space chaos, botched calculations, and accidental Mars landing in an exclusive visual journey!
-            </p>
-
-            <a href="comic.html" class="btn-primary" style="margin-top: 10px; text-decoration: none;">
-                [ READ COMIC ISSUE #1 &rarr; ]
-            </a>
+    <!-- OFFICIAL COMIC PREVIEW -->
+    <section id="comic" class="section-container">
+        <h2 class="section-title">THE OFFICIAL COMIC</h2>
+        <div class="comic-preview-box">
+            <div class="comic-preview-img">
+                <img src="images/elonmars-cover.png" alt="Comic Issue 1">
+            </div>
+            <div class="comic-preview-info">
+                <h3 style="font-family: 'VT323'; font-size: 2.2rem; color: var(--amber-yellow); margin-top:0;">ISSUE #1: The Wrong Turn</h3>
+                <p>Witness the space chaos, botched calculations, decentralized rocket fuel, and emergency landing in an exclusive visual comic series!</p>
+                <br>
+                <a href="comic.html" class="btn-primary">[ READ COMIC ISSUE #1 &rarr; ]</a>
+            </div>
         </div>
-
     </section>
 
-
-    <!-- =========================
-         TOKEN
-    ========================= -->
-
+    <!-- MISSION CONTROL & TOKEN -->
     <section id="token" class="section-container">
-
-        <h2 class="section-title">
-            THE TOKEN
-        </h2>
-
-        <div class="terminal-card">
-
-            <div class="terminal-header">
-                SYSTEM_INFO // TOKEN_METRICS
+        <h2 class="section-title">MISSION CONTROL & TOKEN</h2>
+        
+        <div class="grid-2">
+            <!-- MISSION CONTROL STATUS -->
+            <div class="terminal-log">
+                <h3 style="color: var(--amber-yellow); margin-top: 0; font-family: 'VT323';">[ MISSION STATUS ]</h3>
+                <p>WEBSITE   : ✓ ONLINE</p>
+                <p>X ACCOUNT : ✓ ONLINE</p>
+                <p>COMIC     : ✓ ISSUE #1 LIVE</p>
+                <p>TOKEN     : <span style="color: var(--terminal-green);">🟢 LIVE ON PUMP.FUN</span></p>
+                <p>COMMUNITY : IN PROGRESS</p>
+                <hr style="border-color: var(--terminal-green);">
+                <p>LAST TRANSMISSION:</p>
+                <p style="color: #fff;">"Why are we on Mars?"</p>
             </div>
 
-            <div class="token-details">
-
-                <div class="token-row">
-                    <span>Ticker:</span>
-                    <strong>$ELONMARS</strong>
+            <!-- TOKEN METRICS -->
+            <div class="terminal-card">
+                <div class="terminal-header">SYSTEM_INFO // TOKEN_METRICS</div>
+                <div class="token-details">
+                    <div class="token-row">
+                        <span>Ticker:</span>
+                        <strong>$ELONMARS</strong>
+                    </div>
+                    <div class="token-row">
+                        <span>Network:</span>
+                        <strong>Solana / Pump.fun</strong>
+                    </div>
+                    <div class="token-row">
+                        <span>Contract Address:</span>
+                        <span class="ca-box" id="ca-text">8K6rQTDWgQ3SQCiEC2ZLWA7BMQKjxpDV3KtvRLzipump</span>
+                        <button onclick="copyCA()" class="btn-secondary" style="font-size: 0.85rem; padding: 4px 10px;">COPY CA</button>
+                    </div>
+                    <div class="token-row">
+                        <span>Total Supply:</span>
+                        <strong>1,000,000,000</strong>
+                    </div>
+                    <div class="token-row">
+                        <span>Token Status:</span>
+                        <strong style="color: var(--terminal-green);">LIVE</strong>
+                    </div>
                 </div>
-
-                <div class="token-row">
-                    <span>Network:</span>
-                    <strong>Solana / Pump.fun</strong>
-                </div>
-
-                <div class="token-row">
-
-                    <span>Contract Address:</span>
-
-                    <span
-                        class="ca-box"
-                        id="ca-text"
-                    >
-                        8K6rQTDWgQ3SQCiEC2ZLWA7BMQKjxpDV3KtvRLzipump
-                    </span>
-
-                    <button
-                        onclick="copyCA()"
-                        class="btn-secondary"
-                        style="
-                            font-size: 0.9rem;
-                            padding: 4px 10px;
-                        "
-                    >
-                        COPY CA
-                    </button>
-
-                </div>
-
-                <div class="token-row">
-                    <span>Total Supply:</span>
-                    <strong>1,000,000,000</strong>
-                </div>
-
-                <div class="token-row">
-                    <span>Liquidity:</span>
-                    <strong>Coming Soon</strong>
-                </div>
-
             </div>
-
         </div>
-
     </section>
 
+    <!-- CREW -->
+    <section id="crew" class="section-container">
+        <h2 class="section-title">MEET THE CREW</h2>
+        
+        <div class="crew-grid">
+            <div class="crew-card">
+                <h3>CAPTAIN ELON</h3>
+                <span class="crew-role">CHIEF VISIONARY</span>
+                <p>The boss. The visionary. The reason everything went wrong after playing with X navigation.</p>
+            </div>
 
-    <!-- =========================
-         ROADMAP
-    ========================= -->
+            <div class="crew-card">
+                <h3>SARAH</h3>
+                <span class="crew-role">CHIEF ENGINEER</span>
+                <p>The only person still asking sensible questions while fixing a spaceship with zero budget.</p>
+            </div>
 
+            <div class="crew-card">
+                <h3>GROK V2.0</h3>
+                <span class="crew-role">NAVIGATION AI</span>
+                <p>Extremely intelligent AI with zero filter. Currently has its honesty module disabled.</p>
+            </div>
+
+            <div class="crew-card">
+                <h3>DOGE-01</h3>
+                <span class="crew-role">MYSTERIOUS PASSENGER</span>
+                <p>Nobody knows how he got on board or what he does, but he seems happy to be here.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROADMAP -->
     <section id="roadmap" class="section-container">
-
-        <h2 class="section-title">
-            THE ROADMAP
-        </h2>
-
+        <h2 class="section-title">THE ROADMAP</h2>
+        
         <div class="roadmap-grid">
-
             <div class="roadmap-card">
-
-                <h3>
-                    🚀 PHASE 01 — ESCAPE EARTH
-                </h3>
-
+                <h3>🚀 PHASE 01 — ESCAPE EARTH</h3>
                 <ul>
                     <li>Website Launch</li>
                     <li>X Launch</li>
                     <li>Community Building</li>
-                    <li>Token Launch</li>
+                    <li>Token Launch on Pump.fun</li>
                 </ul>
-
             </div>
 
-
             <div class="roadmap-card">
-
-                <h3>
-                    🪐 PHASE 02 — WRONG TURN
-                </h3>
-
+                <h3>🪐 PHASE 02 — WRONG TURN</h3>
                 <ul>
                     <li>Comic Chapter 1</li>
-                    <li>Meme Expansion</li>
+                    <li>Daily Transmissions</li>
+                    <li>Community Meme Contests</li>
+                    <li>Character Lore Expansion</li>
+                </ul>
+            </div>
+
+            <div class="roadmap-card">
+                <h3>👽 PHASE 03 — WE FOUND MARS</h3>
+                <ul>
+                    <li>Comic Chapters 2 & 3</li>
                     <li>Community Events</li>
-                    <li>More Chaos</li>
+                    <li>Martian Lore Expansion</li>
+                    <li>Strategic Alliances</li>
                 </ul>
-
             </div>
-
 
             <div class="roadmap-card">
-
-                <h3>
-                    👽 PHASE 03 — WE FOUND MARS
-                </h3>
-
+                <h3>🌌 PHASE 04 — INTERGALACTIC</h3>
                 <ul>
-                    <li>More Comic Chapters</li>
-                    <li>Community Growth</li>
-                    <li>Martian Lore</li>
-                    <li>???</li>
+                    <li>New Character Entrances</li>
+                    <li>Community-Created Lore</li>
+                    <li>Mystery Space Drops</li>
+                    <li>To Be Continued...</li>
                 </ul>
-
             </div>
-
-
-            <div class="roadmap-card">
-
-                <h3>
-                    🌌 PHASE 04 — INTERGALACTIC
-                </h3>
-
-                <ul>
-                    <li>Bigger Community</li>
-                    <li>More Content</li>
-                    <li>More Memes</li>
-                    <li>???</li>
-                </ul>
-
-            </div>
-
         </div>
-
     </section>
 
-
-    <!-- =========================
-         CREW
-    ========================= -->
-
-    <section id="crew" class="section-container">
-
-        <h2 class="section-title">
-            MEET THE CREW
-        </h2>
-
-        <div class="crew-grid">
-
-            <div class="crew-card">
-
-                <div class="crew-avatar">
-                    <img src="images/elon.png" alt="Elon">
-                </div>
-
-                <h3>
-                    ELON
-                </h3>
-
-                <p>
-                    The boss. The visionary. The reason everything went wrong.
-                </p>
-
-            </div>
-
-
-            <div class="crew-card">
-
-                <div class="crew-avatar">
-                    👩‍🚀
-                </div>
-
-                <h3>
-                    SARAH
-                </h3>
-
-                <p>
-                    Chief Engineer. The only person still asking sensible questions.
-                </p>
-
-            </div>
-
-
-            <div class="crew-card">
-
-                <div class="crew-avatar">
-                    🤖
-                </div>
-
-                <h3>
-                    GROK
-                </h3>
-
-                <p>
-                    AI assistant. Extremely intelligent. Zero filter.
-                </p>
-
-            </div>
-
-
-            <div class="crew-card">
-
-                <div class="crew-avatar">
-                    🐕
-                </div>
-
-                <h3>
-                    DOGE
-                </h3>
-
-                <p>
-                    Nobody knows why he's here.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         TRANSMISSION LOG
-    ========================= -->
-
+    <!-- TRANSMISSION LOG -->
     <section id="log" class="section-container">
-
-        <h2 class="section-title">
-            TRANSMISSION LOG
-        </h2>
-
+        <h2 class="section-title">TRANSMISSION LOG</h2>
         <div class="terminal-log">
-
-            <p>
-                [08.26.2026] Website deployed to GitHub Pages.
-            </p>
-
-            <p>
-                [08.XX.2026] $ELONMARS contract deployment queued.
-            </p>
-
-            <p class="blink">
-                [COMING SOON] Launch sequence initialized...
-            </p>
-
+            <p>[08.26.2026] Website deployed to GitHub Pages.</p>
+            <p>[08.26.2026] NAVIGATION SYSTEM MALFUNCTION DETECTED.</p>
+            <p>[08.27.2026] UNKNOWN RED PLANET DETECTED... CRASH LANDED ON MARS.</p>
+            <p class="blink">[LIVE TRANSMISSION] $ELONMARS official launch initialized on Solana!</p>
         </div>
-
     </section>
 
+    <!-- FAQ -->
+    <section id="faq" class="section-container">
+        <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+        
+        <div class="faq-item">
+            <h4>WHAT IS ELONMARS?</h4>
+            <p>ELONMARS is a community-driven meme project built around a fictional animated comic universe detailing a hilarious space adventure gone wrong.</p>
+        </div>
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+        <div class="faq-item">
+            <h4>IS ELONMARS AFFILIATED WITH ELON MUSK?</h4>
+            <p>No. ELONMARS is an independent fan-made creative project for entertainment purposes only and is not affiliated with, endorsed by, or connected to Elon Musk, SpaceX, X, Grok, or Dogecoin.</p>
+        </div>
 
+        <div class="faq-item">
+            <h4>WHICH BLOCKCHAIN IS THIS ON?</h4>
+            <p>ELONMARS is deployed on the Solana blockchain (Pump.fun) for ultra-fast and low-cost transactions.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>IS THIS FINANCIAL ADVICE?</h4>
+            <p>No. $ELONMARS is a meme coin created strictly for entertainment and community lore. Crypto assets carry high risks, so always do your own research (DYOR).</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer class="footer">
-
-        <p>
-            ELONMARS &copy; 2026.
-            A fictional meme universe built for entertainment.
-        </p>
+        <p>ELONMARS &copy; 2026. A fictional meme universe built for entertainment.</p>
 
         <div class="footer-links">
-
-            <!-- OFFICIAL X ACCOUNT -->
-            <a
-                href="https://x.com/ElonMarsHQ"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                X (Twitter)
-            </a>
-
+            <a href="https://x.com/ElonMarsHQ" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
             &middot;
-
-            <a href="#token">
-                Contract
-            </a>
-
+            <a href="#token">Contract</a>
             &middot;
-
-            <a href="#hero">
-                Back to Top
-            </a>
-
+            <a href="#hero">Back to Top</a>
         </div>
 
         <p class="disclaimer">
-            ELONMARS is a meme project for entertainment.
-            Nothing on this website constitutes financial advice.
-            Crypto assets are highly speculative.
+            Disclaimer: ELONMARS ($ELONMARS) is a meme coin with no intrinsic financial value or expectation of financial return. 
+            This project is purely fictional and for entertainment purposes. It is not affiliated with Elon Musk, SpaceX, X Corp, or any real-world entity.
         </p>
-
     </footer>
 
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
-
+    <!-- JAVASCRIPT -->
     <script>
-
         function copyCA() {
-
-            const caText =
-                document.getElementById("ca-text").innerText.trim();
-
+            const caText = document.getElementById("ca-text").innerText.trim();
             navigator.clipboard.writeText(caText)
                 .then(() => {
                     alert("Contract Address copied!");
@@ -1025,9 +781,7 @@
                 .catch(() => {
                     alert("Unable to copy Contract Address.");
                 });
-
         }
-
     </script>
 
 </body>
