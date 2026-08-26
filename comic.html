@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELONMARS | Chapter 1 Comic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --mars-red: #ff3333;
+            --mars-orange: #ff6600;
+            --amber-yellow: #ffcc00;
+            --text-main: #f0f0f0;
+            --card-bg: #141419;
+            --border-color: #2a2a35;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .header-title {
+            font-family: 'VT323', monospace;
+            font-size: 3rem;
+            color: var(--mars-orange);
+            margin-bottom: 10px;
+        }
+        .btn-back {
+            display: inline-block;
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--amber-yellow);
+            border: 1px solid var(--amber-yellow);
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: 0.2s;
+        }
+        .btn-back:hover {
+            background: var(--amber-yellow);
+            color: #000;
+        }
+        .comic-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .comic-panel {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .comic-panel img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid var(--mars-orange);
+        }
+        .comic-caption {
+            font-family: 'VT323', monospace;
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="btn-back">&larr; BACK TO HOME</a>
+    
+    <h1 class="header-title">CHAPTER 1: THE WRONG TURN</h1>
+
+    <div class="comic-container">
+
+        <!-- PANEL 1 -->
+        <div class="comic-panel">
+            <img src="images/comic-1.png" alt="Panel 1">
+            <p class="comic-caption">Panel 1: "It started with a single tweet..."</p>
+        </div>
+
+        <!-- PANEL 2 -->
+        <div class="comic-panel">
+            <img src="images/comic-2.png" alt="Panel 2">
+            <p class="comic-caption">Panel 2: "Destination: Moon. Or so we thought."</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
