@@ -169,7 +169,7 @@
         }
 
         /* =========================
-           HERO SECTION
+           HERO SECTION & ANIMATION
         ========================= */
         .hero-section {
             min-height: 700px;
@@ -232,12 +232,25 @@
             text-align: center;
         }
 
+        /* Animasi Melayang untuk Hero Image */
+        @keyframes spaceFloat {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-18px) rotate(1.5deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
         .hero-visual img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            border: 2px solid var(--mars-orange);
-            box-shadow: 0 0 25px rgba(255, 102, 0, 0.25);
+            filter: drop-shadow(0 0 25px rgba(255, 102, 0, 0.35));
+            animation: spaceFloat 5s ease-in-out infinite;
         }
 
         /* =========================
@@ -546,7 +559,8 @@
         </div>
 
         <div class="hero-visual">
-            <img src="images/elonmars-cover.png" alt="ELONMARS Hero Visual">
+            <!-- FOTO UTAMA BARU DENGAN EFEK MELAYANG -->
+            <img src="images/website-utama.png" alt="ELONMARS Space Visual">
         </div>
     </section>
 
@@ -579,7 +593,7 @@
         <h2 class="section-title">THE OFFICIAL COMIC</h2>
         <div class="comic-preview-box">
             <div class="comic-preview-img">
-                <img src="images/elonmars-cover.png" alt="Comic Issue 1">
+                <img src="images/elonmars-cover.png" alt="Comic Issue 1 Cover">
             </div>
             <div class="comic-preview-info">
                 <h3 style="font-family: 'VT323'; font-size: 2.2rem; color: var(--amber-yellow); margin-top:0;">ISSUE #1: The Wrong Turn</h3>
