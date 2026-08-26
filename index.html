@@ -319,6 +319,7 @@
             gap: 25px;
         }
 
+        /* CREW STYLING WITH IMAGES */
         .crew-grid,
         .roadmap-grid {
             display: grid;
@@ -328,6 +329,29 @@
 
         .crew-card {
             text-align: center;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .crew-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--mars-orange);
+        }
+
+        .crew-avatar-box {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            border: 2px solid var(--mars-orange);
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 0 15px rgba(255, 102, 0, 0.25);
+        }
+
+        .crew-avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .crew-card h3 {
@@ -512,7 +536,6 @@
             <p class="subtext">A meme. A rocket. One very questionable decision.</p>
             
             <div class="hero-buttons">
-                <!-- LINK KE COIN PUMP.FUN UTAMA -->
                 <a href="https://pump.fun/coin/8K6rQTDWgQ3SQCiEC2ZLWA7BMQKjxpDV3KtvRLzipump" target="_blank" rel="noopener noreferrer" class="btn-primary">[ BUY ON PUMP.FUN ]</a>
                 <a href="#token" class="btn-secondary">[ VIEW CHART / CA ]</a>
             </div>
@@ -615,30 +638,42 @@
         </div>
     </section>
 
-    <!-- CREW -->
+    <!-- CREW (UPDATED WITH AVATARS) -->
     <section id="crew" class="section-container">
         <h2 class="section-title">MEET THE CREW</h2>
         
         <div class="crew-grid">
             <div class="crew-card">
+                <div class="crew-avatar-box">
+                    <img src="images/elon.png" alt="Captain Elon">
+                </div>
                 <h3>CAPTAIN ELON</h3>
                 <span class="crew-role">CHIEF VISIONARY</span>
                 <p>The boss. The visionary. The reason everything went wrong after playing with X navigation.</p>
             </div>
 
             <div class="crew-card">
+                <div class="crew-avatar-box">
+                    <img src="images/sarah.png" alt="Sarah">
+                </div>
                 <h3>SARAH</h3>
                 <span class="crew-role">CHIEF ENGINEER</span>
                 <p>The only person still asking sensible questions while fixing a spaceship with zero budget.</p>
             </div>
 
             <div class="crew-card">
+                <div class="crew-avatar-box">
+                    <img src="images/grok.png" alt="Grok V2.0">
+                </div>
                 <h3>GROK V2.0</h3>
                 <span class="crew-role">NAVIGATION AI</span>
                 <p>Extremely intelligent AI with zero filter. Currently has its honesty module disabled.</p>
             </div>
 
             <div class="crew-card">
+                <div class="crew-avatar-box">
+                    <img src="images/doge.png" alt="Doge-01">
+                </div>
                 <h3>DOGE-01</h3>
                 <span class="crew-role">MYSTERIOUS PASSENGER</span>
                 <p>Nobody knows how he got on board or what he does, but he seems happy to be here.</p>
