@@ -288,29 +288,42 @@
             margin: 0 0 10px 0;
         }
 
+        /* COMIC SECTION GRID (SUPPORT FOR MULTIPLE ISSUES) */
+        .comic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+        }
+
         .comic-preview-box {
             background: var(--card-bg);
             border: 2px solid var(--mars-red);
-            padding: 30px;
+            padding: 25px;
             border-radius: 6px;
             display: flex;
-            gap: 30px;
-            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .comic-preview-img {
-            flex: 1;
-            max-width: 320px;
+            width: 100%;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
         .comic-preview-img img {
             width: 100%;
+            max-height: 380px;
+            object-fit: cover;
             border-radius: 4px;
             border: 1px solid var(--border-color);
         }
 
         .comic-preview-info {
-            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
         }
 
         .grid-2 {
@@ -474,8 +487,7 @@
             .hero-buttons {
                 justify-content: center;
             }
-            .comic-preview-box, .grid-2 {
-                flex-direction: column;
+            .comic-grid, .grid-2 {
                 grid-template-columns: 1fr;
             }
             .navbar {
@@ -574,18 +586,39 @@
         </div>
     </section>
 
-    <!-- OFFICIAL COMIC PREVIEW -->
+    <!-- OFFICIAL COMIC SECTION (ISSUE #1 & ISSUE #2) -->
     <section id="comic" class="section-container">
-        <h2 class="section-title">THE OFFICIAL COMIC</h2>
-        <div class="comic-preview-box">
-            <div class="comic-preview-img">
-                <img src="images/elonmars-cover.png" alt="Comic Issue 1 Cover">
+        <h2 class="section-title">THE OFFICIAL COMIC SERIES</h2>
+        
+        <div class="comic-grid">
+            <!-- ISSUE #1 -->
+            <div class="comic-preview-box">
+                <div class="comic-preview-img">
+                    <img src="images/elonmars-cover.png" alt="Comic Issue 1 Cover">
+                </div>
+                <div class="comic-preview-info">
+                    <div>
+                        <h3 style="font-family: 'VT323'; font-size: 2rem; color: var(--amber-yellow); margin-top:0;">ISSUE #1: The Wrong Turn</h3>
+                        <p>Witness the space chaos, botched calculations, decentralized rocket fuel, and emergency landing!</p>
+                    </div>
+                    <br>
+                    <a href="comic.html" class="btn-primary">[ READ ISSUE #1 &rarr; ]</a>
+                </div>
             </div>
-            <div class="comic-preview-info">
-                <h3 style="font-family: 'VT323'; font-size: 2.2rem; color: var(--amber-yellow); margin-top:0;">ISSUE #1: The Wrong Turn</h3>
-                <p>Witness the space chaos, botched calculations, decentralized rocket fuel, and emergency landing in an exclusive visual comic series!</p>
-                <br>
-                <a href="comic.html" class="btn-primary">[ READ COMIC ISSUE #1 &rarr; ]</a>
+
+            <!-- ISSUE #2 -->
+            <div class="comic-preview-box">
+                <div class="comic-preview-img">
+                    <img src="images/elonmars-cover2.png" alt="Comic Issue 2 Cover">
+                </div>
+                <div class="comic-preview-info">
+                    <div>
+                        <h3 style="font-family: 'VT323'; font-size: 2rem; color: var(--amber-yellow); margin-top:0;">ISSUE #2: Martian Survival</h3>
+                        <p>The journey continues on the red planet! Can the crew survive with a $50 budget?</p>
+                    </div>
+                    <br>
+                    <a href="comic2.html" class="btn-primary">[ READ ISSUE #2 &rarr; ]</a>
+                </div>
             </div>
         </div>
     </section>
@@ -600,7 +633,7 @@
                 <h3 style="color: var(--amber-yellow); margin-top: 0; font-family: 'VT323';">[ MISSION STATUS ]</h3>
                 <p>WEBSITE   : ✓ ONLINE</p>
                 <p>X ACCOUNT : ✓ ONLINE</p>
-                <p>COMIC     : ✓ ISSUE #1 LIVE</p>
+                <p>COMIC     : ✓ ISSUE #1 & #2 LIVE</p>
                 <p>TOKEN     : <a href="https://pump.fun/coin/8K6rQTDWgQ3SQCiEC2ZLWA7BMQKjxpDV3KtvRLzipump" target="_blank" style="color: var(--terminal-green); text-decoration: underline;">🟢 LIVE ON PUMP.FUN</a></p>
                 <p>COMMUNITY : IN PROGRESS</p>
                 <hr style="border-color: var(--terminal-green);">
@@ -638,7 +671,7 @@
         </div>
     </section>
 
-    <!-- CREW (UPDATED WITH AVATARS) -->
+    <!-- CREW -->
     <section id="crew" class="section-container">
         <h2 class="section-title">MEET THE CREW</h2>
         
@@ -735,6 +768,7 @@
             <p>[08.26.2026] Website deployed to GitHub Pages.</p>
             <p>[08.26.2026] NAVIGATION SYSTEM MALFUNCTION DETECTED.</p>
             <p>[08.27.2026] UNKNOWN RED PLANET DETECTED... CRASH LANDED ON MARS.</p>
+            <p>[08.27.2026] COMIC ISSUE #2 RELEASED!</p>
             <p class="blink">[LIVE TRANSMISSION] $ELONMARS official launch initialized on Solana!</p>
         </div>
     </section>
