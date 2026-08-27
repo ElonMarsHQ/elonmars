@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELONMARS | Official Comic Reader - Issue #2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --mars-red: #ff3333;
+            --mars-orange: #ff6600;
+            --amber-yellow: #ffcc00;
+            --text-main: #f0f0f0;
+            --card-bg: #141419;
+            --border-color: #2a2a35;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* HEADER */
+        .reader-header {
+            width: 100%;
+            padding: 12px 20px;
+            background: rgba(10, 10, 12, 0.95);
+            border-bottom: 2px solid var(--mars-red);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-nav {
+            color: var(--amber-yellow);
+            text-decoration: none;
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+            border: 1px solid var(--amber-yellow);
+            padding: 4px 12px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-nav:hover {
+            background: var(--amber-yellow);
+            color: #000;
+        }
+
+        .reader-title {
+            font-family: 'VT323', monospace;
+            font-size: 1.4rem;
+            color: var(--mars-orange);
+            margin: 0;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* VERTICAL COMIC STREAM */
+        .comic-stream {
+            width: 100%;
+            max-width: 720px;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .comic-panel {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            line-height: 0;
+        }
+
+        .comic-panel img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* END SECTION */
+        .end-card {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 50px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .end-card h3 {
+            font-family: 'VT323', monospace;
+            font-size: 2.2rem;
+            color: var(--amber-yellow);
+            margin: 0;
+        }
+
+        .end-card p {
+            color: #888;
+            margin: 0 0 10px 0;
+            font-size: 0.95rem;
+        }
+
+        /* FLOATING ACTION BUTTON */
+        .floating-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--mars-red);
+            color: #fff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(255, 51, 51, 0.4);
+            transition: transform 0.2s;
+            z-index: 99;
+        }
+
+        .floating-top:hover {
+            transform: translateY(-3px);
+            background: var(--mars-orange);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 600px) {
+            .reader-header {
+                padding: 10px 15px;
+            }
+            .reader-title {
+                font-size: 1.1rem;
+            }
+            .btn-nav {
+                font-size: 1rem;
+                padding: 3px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-header">
+        <a href="index.html" class="btn-nav">&larr; MAIN SITE</a>
+        <h2 class="reader-title">ELONMARS // ISSUE #2</h2>
+        <div style="width: 65px;"></div>
+    </div>
+
+    <!-- STREAMING HALAMAN KOMIK ISSUE #2 -->
+    <div class="comic-stream">
+        <div class="comic-panel"><img src="images/elonmars-cover2.png" alt="Comic Issue 2 Cover"></div>
+        <div class="comic-panel"><img src="images/elonmars-page6.png" alt="Comic Page 6"></div>
+        <div class="comic-panel"><img src="images/elonmars-page7.png" alt="Comic Page 7"></div>
+        <div class="comic-panel"><img src="images/elonmars-page8.png" alt="Comic Page 8"></div>
+
+        <div class="end-card">
+            <h3>TO BE CONTINUED IN ISSUE #3...</h3>
+            <p>You have reached the end of Issue #2. Stay tuned for the next adventure!</p>
+            <a href="index.html" class="btn-nav">[ BACK TO HOMEPAGE ]</a>
+        </div>
+    </div>
+
+    <a href="#" class="floating-top" title="Scroll to Top">&uarr;</a>
+
+</body>
+</html>
